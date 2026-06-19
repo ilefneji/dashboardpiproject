@@ -1,28 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/cupertino.dart';
 
 import 'app_colors.dart';
 
 class AppTheme {
   static ThemeData get lightTheme => _buildTheme(
-        brightness: Brightness.light,
-        background: const Color(0xFFF5F7FA),
-        surface: Colors.white,
-        elevatedSurface: Colors.white,
-        border: const Color(0xFFE5E7EB),
-        textPrimary: const Color(0xFF111827),
-        textSecondary: const Color(0xFF64748B),
-      );
+    brightness: Brightness.light,
+    background: const Color(0xFFF5F7FA),
+    surface: Colors.white,
+    elevatedSurface: Colors.white,
+    border: const Color(0xFFE5E7EB),
+    textPrimary: const Color(0xFF111827),
+    textSecondary: const Color(0xFF64748B),
+  );
 
   static ThemeData get darkTheme => _buildTheme(
-        brightness: Brightness.dark,
-        background: AppColors.darkBackground,
-        surface: AppColors.darkSurface,
-        elevatedSurface: AppColors.darkSurfaceElevated,
-        border: AppColors.darkBorder,
-        textPrimary: AppColors.darkTextPrimary,
-        textSecondary: AppColors.darkTextSecondary,
-      );
+    brightness: Brightness.dark,
+    background: AppColors.darkBackground,
+    surface: AppColors.darkSurface,
+    elevatedSurface: AppColors.darkSurfaceElevated,
+    border: AppColors.darkBorder,
+    textPrimary: AppColors.darkTextPrimary,
+    textSecondary: AppColors.darkTextSecondary,
+  );
 
   static ThemeData _buildTheme({
     required Brightness brightness,
@@ -39,10 +40,9 @@ class AppTheme {
       useMaterial3: true,
       visualDensity: VisualDensity.compact,
     );
-    final textTheme = GoogleFonts.interTextTheme(base.textTheme).apply(
-      bodyColor: textPrimary,
-      displayColor: textPrimary,
-    );
+    final textTheme = GoogleFonts.interTextTheme(
+      base.textTheme,
+    ).apply(bodyColor: textPrimary, displayColor: textPrimary);
 
     return base.copyWith(
       scaffoldBackgroundColor: background,
@@ -94,11 +94,7 @@ class AppTheme {
           side: BorderSide(color: border),
         ),
       ),
-      dividerTheme: DividerThemeData(
-        color: border,
-        thickness: 1,
-        space: 1,
-      ),
+      dividerTheme: DividerThemeData(color: border, thickness: 1, space: 1),
       dropdownMenuTheme: DropdownMenuThemeData(
         textStyle: textTheme.bodyMedium?.copyWith(color: textPrimary),
         inputDecorationTheme: InputDecorationTheme(
@@ -127,8 +123,10 @@ class AppTheme {
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: elevatedSurface,
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 12, vertical: 11),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 12,
+          vertical: 11,
+        ),
         hintStyle: textTheme.bodyMedium?.copyWith(color: textSecondary),
         prefixIconColor: textSecondary,
         suffixIconColor: textSecondary,
@@ -142,8 +140,10 @@ class AppTheme {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14),
-          borderSide:
-              const BorderSide(color: AppColors.primaryOrange, width: 1.6),
+          borderSide: const BorderSide(
+            color: AppColors.primaryOrange,
+            width: 1.6,
+          ),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14),
@@ -216,9 +216,7 @@ class AppTheme {
         backgroundColor: AppColors.primaryOrange,
         foregroundColor: Colors.white,
         elevation: 0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       ),
       dataTableTheme: DataTableThemeData(
         headingRowColor: MaterialStatePropertyAll(elevatedSurface),
@@ -244,16 +242,12 @@ class AppTheme {
           fontWeight: FontWeight.w700,
         ),
         side: BorderSide(color: border),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(999),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(999)),
       ),
       dialogTheme: DialogThemeData(
         backgroundColor: surface,
         surfaceTintColor: Colors.transparent,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       ),
       bottomSheetTheme: BottomSheetThemeData(
         backgroundColor: surface,
@@ -283,13 +277,12 @@ class AppTheme {
         tileColor: surface,
       ),
       snackBarTheme: SnackBarThemeData(
-        backgroundColor:
-            isDark ? const Color(0xFF1F2937) : const Color(0xFF111827),
+        backgroundColor: isDark
+            ? const Color(0xFF1F2937)
+            : const Color(0xFF111827),
         contentTextStyle: textTheme.bodyMedium?.copyWith(color: Colors.white),
         behavior: SnackBarBehavior.floating,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(14),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
       ),
       progressIndicatorTheme: const ProgressIndicatorThemeData(
         color: AppColors.primaryOrange,
@@ -297,9 +290,9 @@ class AppTheme {
       pageTransitionsTheme: const PageTransitionsTheme(
         builders: {
           TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
-          TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+          TargetPlatform.iOS: FadeUpwardsPageTransitionsBuilder(),
           TargetPlatform.linux: FadeUpwardsPageTransitionsBuilder(),
-          TargetPlatform.macOS: CupertinoPageTransitionsBuilder(),
+          TargetPlatform.macOS: FadeUpwardsPageTransitionsBuilder(),
           TargetPlatform.windows: FadeUpwardsPageTransitionsBuilder(),
         },
       ),
