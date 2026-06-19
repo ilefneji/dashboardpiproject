@@ -1,0 +1,1434 @@
+{
+  "version": 1,
+  "source": "Lot de contrôle def tableau.docx",
+  "description": "Lots, activités et activités de contrôle prédéfinies pour l’application.",
+  "lots": [
+    {
+      "id": "lot_01_genie_civil_gros_uvre",
+      "nom": "Génie Civil — Gros Œuvre",
+      "activites": [
+        {
+          "id": "act_01_01_installation_de_chantier",
+          "nom": "Installation de chantier",
+          "controles": [
+            {
+              "id": "ctrl_01_01_001_verification_de_l_approbation_des_plans",
+              "titre": "Vérification de l'approbation des plans",
+              "description": "Confirmer que les plans du chantier ont été approuvés avant le début des travaux."
+            }
+          ]
+        },
+        {
+          "id": "act_01_02_terrassement",
+          "nom": "Terrassement",
+          "controles": [
+            {
+              "id": "ctrl_01_02_001_reception_dimplantation",
+              "titre": "Réception d’implantation",
+              "description": "Vérifier que l’implantation du terrain correspond aux plans."
+            },
+            {
+              "id": "ctrl_01_02_002_reception_cote_de_projet",
+              "titre": "Réception côte de projet",
+              "description": "Confirmer que les cotes de nivellement respectent le projet."
+            },
+            {
+              "id": "ctrl_01_02_003_reception_des_axes",
+              "titre": "Réception des axes",
+              "description": "Vérifier l’implantation correcte des axes de construction."
+            },
+            {
+              "id": "ctrl_01_02_004_reception_de_la_levee_topographique_avant",
+              "titre": "Réception de la levée topographique avant",
+              "description": "S’assurer qu’un relevé topographique a été effectué avant les travaux."
+            },
+            {
+              "id": "ctrl_01_02_005_reception_de_la_levee_topographique_apres",
+              "titre": "Réception de la levée topographique après",
+              "description": "Confirmer qu’un relevé topographique a été réalisée après les travaux."
+            }
+          ]
+        },
+        {
+          "id": "act_01_03_remblai",
+          "nom": "Remblai",
+          "controles": [
+            {
+              "id": "ctrl_01_03_001_identification_de_la_provenance_des_remblais",
+              "titre": "Identification de la provenance des remblais",
+              "description": "Vérifier l’origine des matériaux de remblai."
+            },
+            {
+              "id": "ctrl_01_03_002_prelevement_et_essai_des_remblais_essai_de_bleu_de",
+              "titre": "Prélèvement et essai des remblais (essai de bleu de méthylène)",
+              "description": "Contrôler la qualité des remblais par des essais en laboratoire."
+            },
+            {
+              "id": "ctrl_01_03_003_analyse_granulometrique_des_remblais",
+              "titre": "Analyse granulométrique des remblais",
+              "description": "Vérifier la distribution granulométrique des matériaux."
+            },
+            {
+              "id": "ctrl_01_03_004_equivalence_de_sable",
+              "titre": "Équivalence de sable",
+              "description": "Mesurer la propreté des sables utilisés."
+            },
+            {
+              "id": "ctrl_01_03_005_reception_de_couches_de_remblaiement",
+              "titre": "Réception de couches de remblaiement",
+              "description": "S’assurer de la bonne mise en place des couches de remblai."
+            },
+            {
+              "id": "ctrl_01_03_006_essais_de_compactage_des_couches_des_remblais",
+              "titre": "Essais de compactage des couches des remblais",
+              "description": "Contrôler la densité et la portance des couches compactées."
+            },
+            {
+              "id": "ctrl_01_03_007_resultat_de_compactage_par_couche_de_remblaiement",
+              "titre": "Résultat de compactage par couche de remblaiement",
+              "description": "Vérifier que les résultats de compactage respectent les spécifications."
+            }
+          ]
+        },
+        {
+          "id": "act_01_04_fouille_en_plein_masse",
+          "nom": "Fouille en plein masse",
+          "controles": [
+            {
+              "id": "ctrl_01_04_001_prelevement_sol",
+              "titre": "Prélèvement sol",
+              "description": "Effectuer des prélèvements de sol pour analyse."
+            },
+            {
+              "id": "ctrl_01_04_002_reception_du_fond_de_fouille",
+              "titre": "Réception du fond de fouille",
+              "description": "Vérifier la qualité et la profondeur du fond de fouille."
+            },
+            {
+              "id": "ctrl_01_04_003_etude_de_formulation",
+              "titre": "Étude de formulation",
+              "description": "Contrôler la formulation du béton ou des matériaux utilisés."
+            },
+            {
+              "id": "ctrl_01_04_004_identification_des_sables",
+              "titre": "Identification des sables",
+              "description": "S’assurer de la qualité et de l’origine des sables."
+            }
+          ]
+        },
+        {
+          "id": "act_01_05_fouille_en_puits",
+          "nom": "Fouille en puits",
+          "controles": [
+            {
+              "id": "ctrl_01_05_001_prelevement_sol",
+              "titre": "Prélèvement sol",
+              "description": "Prélever des échantillons de sol pour analyse."
+            },
+            {
+              "id": "ctrl_01_05_002_reception_du_fond_de_fouille",
+              "titre": "Réception du fond de fouille",
+              "description": "Vérifier la conformité du fond de fouille."
+            },
+            {
+              "id": "ctrl_01_05_003_etude_de_formulation",
+              "titre": "Étude de formulation",
+              "description": "Contrôler la formulation des matériaux utilisés."
+            },
+            {
+              "id": "ctrl_01_05_004_identification_des_sables",
+              "titre": "Identification des sables",
+              "description": "S’assurer de la qualité des sables."
+            }
+          ]
+        },
+        {
+          "id": "act_01_06_fouille_en_rigole",
+          "nom": "Fouille en rigole",
+          "controles": [
+            {
+              "id": "ctrl_01_06_001_reception_du_fond_de_fouille",
+              "titre": "Réception du fond de fouille",
+              "description": "Vérifier la qualité et la profondeur de la fouille."
+            },
+            {
+              "id": "ctrl_01_06_002_etude_de_formulation",
+              "titre": "Étude de formulation",
+              "description": "Contrôler la formulation des matériaux."
+            },
+            {
+              "id": "ctrl_01_06_003_identification_des_sables",
+              "titre": "Identification des sables",
+              "description": "S’assurer de l’origine et de la qualité des sables."
+            }
+          ]
+        },
+        {
+          "id": "act_01_07_betonnage_gros_beton",
+          "nom": "Bétonnage : Gros béton",
+          "controles": [
+            {
+              "id": "ctrl_01_07_001_le_beton_livre_correspond_a_la_categorie_prevue",
+              "titre": "Le béton livré correspond à la catégorie prévue",
+              "description": "Vérifier que le béton utilisé est conforme à la commande."
+            },
+            {
+              "id": "ctrl_01_07_002_mesure_de_laffaissement_du_cone_dabrams_slump_test",
+              "titre": "Mesure de l’affaissement du cône d’Abrams (Slump Test)",
+              "description": "Contrôler la consistance du béton.",
+              "element": "Semelle",
+              "reference": "MAT 1"
+            },
+            {
+              "id": "ctrl_01_07_003_mesure_de_la_temperature_ambiante",
+              "titre": "Mesure de la température ambiante",
+              "description": "Relever la température lors du bétonnage.",
+              "element": "Longrine"
+            },
+            {
+              "id": "ctrl_01_07_004_mesure_de_la_temperature_du_beton",
+              "titre": "Mesure de la température du béton",
+              "description": "Contrôler la température du béton à la livraison.",
+              "element": "Semelle filante"
+            },
+            {
+              "id": "ctrl_01_07_005_provenance_du_beton",
+              "titre": "Provenance du béton",
+              "description": "Vérifier l’origine du béton.",
+              "element": "Poteaux"
+            },
+            {
+              "id": "ctrl_01_07_006_delai_entre_fabrication_et_coulage",
+              "titre": "Délai entre fabrication et coulage",
+              "description": "S’assurer que le délai entre fabrication et mise en œuvre est respecté.",
+              "element": "Dalle pleine"
+            },
+            {
+              "id": "ctrl_01_07_007_mise_en_place_du_beton_de_convenance",
+              "titre": "Mise en place du béton de convenance",
+              "description": "Vérifier la bonne mise en œuvre du béton.",
+              "element": "Dalle hourdis"
+            },
+            {
+              "id": "ctrl_01_07_008_traitement_de_la_surface_de_reprise",
+              "titre": "Traitement de la surface de reprise",
+              "description": "Contrôler que les reprises de bétonnage sont traitées conformément.",
+              "element": "Chape"
+            },
+            {
+              "id": "ctrl_01_07_009_hauteur_de_coulage_inferieure_a_1_50_m",
+              "titre": "Hauteur de coulage inférieure à 1,50 m",
+              "description": "Vérifier que la hauteur de chute du béton est limitée.",
+              "element": "Linteau"
+            },
+            {
+              "id": "ctrl_01_07_010_epaisseur_vibree_inferieure_a_20_cm",
+              "titre": "Épaisseur vibrée inférieure à 20 cm",
+              "description": "Contrôler l’épaisseur des couches vibrées.",
+              "element": "chainage"
+            },
+            {
+              "id": "ctrl_01_07_011_composition_du_beton",
+              "titre": "Composition du béton",
+              "description": "Vérifier la formulation du béton.",
+              "element": "poutre"
+            },
+            {
+              "id": "ctrl_01_07_012_classe_du_ciment",
+              "titre": "Classe du ciment",
+              "description": "S’assurer de la classe du ciment utilisé.",
+              "element": "Voile",
+              "reference": "MAT 6"
+            },
+            {
+              "id": "ctrl_01_07_013_classe_du_sable",
+              "titre": "Classe du sable",
+              "description": "Contrôler la qualité du sable.",
+              "reference": "MAT 2 + MAT 4"
+            },
+            {
+              "id": "ctrl_01_07_014_classe_du_gravier_gros_beton",
+              "titre": "Classe du gravier/gros béton",
+              "description": "Vérifier la granulométrie du gravier.",
+              "reference": "MAT 5 + MAT 4"
+            },
+            {
+              "id": "ctrl_01_07_015_essais_decrasement_du_beton",
+              "titre": "Essais d’écrasement du béton",
+              "description": "Contrôler la résistance du béton par essais."
+            },
+            {
+              "id": "ctrl_01_07_016_reception_des_axes_des_poteaux",
+              "titre": "Réception des axes des poteaux",
+              "description": "Vérifier l’implantation des poteaux."
+            },
+            {
+              "id": "ctrl_01_07_017_utilisation_dadjuvant_dans_le_beton",
+              "titre": "Utilisation d’adjuvant dans le béton",
+              "description": "S’assurer de la conformité des adjuvants."
+            },
+            {
+              "id": "ctrl_01_07_018_prelevement_des_eprouvettes",
+              "titre": "Prélèvement des éprouvettes",
+              "description": "Prélever des échantillons pour essais de compression."
+            },
+            {
+              "id": "ctrl_01_07_019_demoulage_et_stockage_des_eprouvettes",
+              "titre": "Démoulage et stockage des éprouvettes",
+              "description": "Contrôler les conditions de conservation des éprouvettes."
+            },
+            {
+              "id": "ctrl_01_07_020_verification_de_letat_de_surface_visuellement",
+              "titre": "Vérification de l’état de surface visuellement",
+              "description": "Inspecter visuellement la surface du béton."
+            },
+            {
+              "id": "ctrl_01_07_021_verification_des_resultats_decrasement",
+              "titre": "Vérification des résultats d’écrasement",
+              "description": "Analyser les résultats des essais de compression."
+            }
+          ]
+        },
+        {
+          "id": "act_01_08_ferraillage_gros_beton",
+          "nom": "Ferraillage : Gros béton",
+          "controles": [
+            {
+              "id": "ctrl_01_08_001_reception_des_aciers_preassembles_ou_assemblage_de",
+              "titre": "Réception des aciers préassemblés ou assemblage des aciers",
+              "description": "Confirmer que les aciers préassemblés ou assemblés sur site ont été réceptionnés et validés."
+            },
+            {
+              "id": "ctrl_01_08_002_verification_visuelle_de_lacier",
+              "titre": "Vérification visuelle de l’acier",
+              "description": "S’assurer que les aciers sont propres, sans laitance, boue ou rouille.",
+              "element": "Semelle",
+              "reference": "MAT 7"
+            },
+            {
+              "id": "ctrl_01_08_003_verification_visuelle_du_ferraillage_rigide_et_bie",
+              "titre": "Vérification visuelle du ferraillage rigide et bien fixé",
+              "description": "Contrôler que le ferraillage est stable et correctement fixé.",
+              "element": "Longrine"
+            },
+            {
+              "id": "ctrl_01_08_004_verification_des_mesures_verticalite_et_horizontal",
+              "titre": "Vérification des mesures : verticalité et horizontalité",
+              "description": "Vérifier l’alignement et le niveau des armatures.",
+              "element": "Semelle filante"
+            },
+            {
+              "id": "ctrl_01_08_005_verification_du_positionnement",
+              "titre": "Vérification du positionnement",
+              "description": "Contrôler le placement des aciers par rapport aux plans.",
+              "element": "Poteaux"
+            },
+            {
+              "id": "ctrl_01_08_006_verification_de_lenrobage_et_de_la_mise_en_place_d",
+              "titre": "Vérification de l’enrobage et de la mise en place des cales",
+              "description": "S’assurer que l’enrobage est respecté et que les cales sont bien positionnées.",
+              "element": "Chape"
+            },
+            {
+              "id": "ctrl_01_08_007_verification_des_aciers_assembles_sur_place_confor",
+              "titre": "Vérification des aciers assemblés sur place conformes aux plans",
+              "description": "Confirmer que le montage sur site correspond aux plans.",
+              "element": "Dalle pleine"
+            },
+            {
+              "id": "ctrl_01_08_008_verification_du_nombre_et_diametre_des_barres_daci",
+              "titre": "Vérification du nombre et diamètre des barres d’aciers",
+              "description": "Contrôler la conformité quantitative et qualitative des barres.",
+              "element": "Dalle hourdis"
+            },
+            {
+              "id": "ctrl_01_08_009_verification_du_nombre_diametre_et_position_des_ca",
+              "titre": "Vérification du nombre, diamètre et position des cadres",
+              "description": "S’assurer que les cadres sont conformes aux plans.",
+              "element": "Linteau"
+            },
+            {
+              "id": "ctrl_01_08_010_verification_du_nombre_diametre_et_position_des_et",
+              "titre": "Vérification du nombre, diamètre et position des étriers",
+              "description": "Contrôler la conformité des étriers.",
+              "element": "chainage"
+            },
+            {
+              "id": "ctrl_01_08_011_verification_du_nombre_diametre_et_position_des_ep",
+              "titre": "Vérification du nombre, diamètre et position des épingles",
+              "description": "Vérifier la présence et la position des épingles.",
+              "element": "poutre"
+            },
+            {
+              "id": "ctrl_01_08_012_verification_du_respect_de_la_longueur_de_recouvre",
+              "titre": "Vérification du respect de la longueur de recouvrement",
+              "description": "Contrôler que les recouvrements sont conformes.",
+              "element": "Voile)"
+            },
+            {
+              "id": "ctrl_01_08_013_verification_du_nombre_diametre_et_position_des_ba",
+              "titre": "Vérification du nombre, diamètre et position des barres d’attentes",
+              "description": "S’assurer de la présence et du placement des barres d’attente."
+            },
+            {
+              "id": "ctrl_01_08_014_verification_du_coudage_des_barres_darmatures",
+              "titre": "Vérification du coudage des barres d’armatures",
+              "description": "Contrôler la forme et l’angle des coudes."
+            },
+            {
+              "id": "ctrl_01_08_015_verification_du_coudage_des_cadres",
+              "titre": "Vérification du coudage des cadres",
+              "description": "Vérifier la conformité des cadres pliés."
+            },
+            {
+              "id": "ctrl_01_08_016_verification_du_coudage_des_etriers",
+              "titre": "Vérification du coudage des étriers",
+              "description": "Contrôler la forme des étriers."
+            },
+            {
+              "id": "ctrl_01_08_017_verification_du_coudage_des_epingles",
+              "titre": "Vérification du coudage des épingles",
+              "description": "S’assurer du pliage correct des épingles."
+            },
+            {
+              "id": "ctrl_01_08_018_verification_de_la_lignature_des_armatures",
+              "titre": "Vérification de la lignature des armatures",
+              "description": "Contrôler la ligature des armatures."
+            },
+            {
+              "id": "ctrl_01_08_019_verification_de_lespacement_entre_lits_successifs_",
+              "titre": "Vérification de l’espacement entre lits successifs d’armatures",
+              "description": "S’assurer du respect des espacements."
+            },
+            {
+              "id": "ctrl_01_08_020_verification_de_la_mise_en_place_des_joints_water_",
+              "titre": "Vérification de la mise en place des joints water stops",
+              "description": "Confirmer l’installation correcte des joints d’étanchéité."
+            }
+          ]
+        },
+        {
+          "id": "act_01_09_coffrage_gros_beton",
+          "nom": "Coffrage : Gros béton",
+          "controles": [
+            {
+              "id": "ctrl_01_09_001_reception_du_ferraillage",
+              "titre": "Réception du ferraillage",
+              "description": "Confirmer que le ferraillage a été inspecté et formellement accepté (par le bureau de contrôle, la maîtrise d'œuvre, etc.) avant la mise en place du coffrage"
+            },
+            {
+              "id": "ctrl_01_09_002_verification_de_la_qualite_et_du_type_de_coffrage",
+              "titre": "Vérification de la qualité et du type de coffrage",
+              "description": "S'assurer que le type de coffrage (métal, bois, plastique, etc.) et sa qualité de surface sont adaptés à la classe de parement exigée (ordinaire, soigné, spécial) comme spécifié dans les documents du projet.",
+              "element": "Semelle"
+            },
+            {
+              "id": "ctrl_01_09_003_verification_de_la_conformite_des_dimensions",
+              "titre": "Vérification de la conformité des dimensions",
+              "description": "Contrôler que les dimensions internes du coffrage (largeur, hauteur, épaisseur) correspondent strictement aux cotes indiquées sur les plans d'exécution, en tenant compte des tolérances admises.",
+              "element": "Longrine"
+            },
+            {
+              "id": "ctrl_01_09_004_verification_de_la_proprete",
+              "titre": "Vérification de la propreté",
+              "description": "Inspecter l'intérieur des panneaux de coffrage pour s'assurer qu'ils sont parfaitement nettoyés de tout résidu de béton, de boue ou de vieux produit de décoffrage, afin d'obtenir une surface de béton nette.",
+              "element": "Semelle filante"
+            },
+            {
+              "id": "ctrl_01_09_005_verification_de_l_asperite_du_coffrage",
+              "titre": "Vérification de l'aspérité du coffrage",
+              "description": "Contrôler que la texture de surface des panneaux (lisse, grainée) est uniforme et conforme à l'aspect final souhaité pour le béton, en cohérence avec le classement de parement.",
+              "element": "Poteaux"
+            },
+            {
+              "id": "ctrl_01_09_006_verification_de_la_planeite",
+              "titre": "Vérification de la planéité",
+              "description": "Vérifier, à l'aide d'une règle droite, que les panneaux de coffrage sont plans et sans déformation localisée (bosse ou enfoncement) qui pourrait se transférer sur la surface du béton.",
+              "element": "Chape"
+            },
+            {
+              "id": "ctrl_01_09_007_verification_de_l_etancheite",
+              "titre": "Vérification de l'étanchéité",
+              "description": "S'assurer que les joints entre les panneaux de coffrage sont parfaitement étanches (à l'aide de mastic ou de joints spécifiques) pour éviter toute fuite de laitance de ciment pendant le coulage, ce qui provoquerait des nids de poule.",
+              "element": "Dalle pleine"
+            },
+            {
+              "id": "ctrl_01_09_008_verification_de_la_rigidite",
+              "titre": "Vérification de la rigidité",
+              "description": "Contrôler la robustesse de l'ensemble du coffrage et de son étaiement. Le coffrage ne doit présenter aucune vibration ou fléchissement anormal sous charge, garantissant ainsi la géométrie de l'ouvrage bétonné.",
+              "element": "Dalle hourdis"
+            },
+            {
+              "id": "ctrl_01_09_009_application_d_un_produit_de_decoffrage",
+              "titre": "Application d'un produit de décoffrage",
+              "description": "Vérifier que l'intérieur des panneaux a été enduit uniformément d'un agent de démoulage approprié et en quantité suffisante pour faciliter le décoffrage sans arrachage et protéger la surface du béton.",
+              "element": "Linteau"
+            },
+            {
+              "id": "ctrl_01_09_010_verification_de_la_mise_en_place_des_reservations_",
+              "titre": "Vérification de la mise en place des réservations et inserts",
+              "description": "Confirmer que toutes les boîtes de réservation (pour gaines, canalisations) et tous les inserts (pour fixations ultérieures) sont correctement positionnés selon les plans et solidement fixés au coffrage ou au ferraillage pour éviter tout déplacements lors du coulage.",
+              "element": "chainage"
+            },
+            {
+              "id": "ctrl_01_09_011_masticage_des_trous_et_defauts",
+              "titre": "Masticage des trous et défauts",
+              "description": "Inspecter et faire reboucher tous les trous, fissures ou éclats présents sur les panneaux de coffrage avec un mastic adapté pour obtenir une surface béton parfaite et éviter les marques.",
+              "element": "poutre"
+            },
+            {
+              "id": "ctrl_01_09_012_verification_du_reglage_et_de_l_alignement",
+              "titre": "Vérification du réglage et de l'alignement",
+              "description": "Contrôler à l'aide d'un niveau laser, d'un fil à plomb et d'un décamètre que le coffrage est parfaitement aligné, d'aplomb et de niveau, et positionné exactement selon l'implantation définie sur les plans.",
+              "element": "Voile)"
+            },
+            {
+              "id": "ctrl_01_09_013_verification_des_tiges_de_serrage",
+              "titre": "Vérification des tiges de serrage",
+              "description": "S'assurer que toutes les tiges de serrage (tirants) sont en place, correctement positionnées et suffisamment serrées pour résister à la poussée du béton frais sans déformation."
+            },
+            {
+              "id": "ctrl_01_09_014_verification_des_contreventements",
+              "titre": "Vérification des contreventements",
+              "description": "Contrôler la présence et la robustesse des étais, des butées et des haubans de contreventement qui assurent la stabilité latérale et le maintien en position de l'ensemble du coffrage pendant le coulage."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lot_02_genie_civil_second_uvre",
+      "nom": "Génie Civil — Second Œuvre",
+      "activites": [
+        {
+          "id": "act_02_01_maconnerie_brique_agglo_platre",
+          "nom": "Maçonnerie : brique, agglo, plâtre",
+          "controles": [
+            {
+              "id": "ctrl_02_01_001_verification_de_la_nature_de_la_maconnerie",
+              "titre": "Vérification de la nature de la maçonnerie",
+              "description": "S’assurer du type de matériaux utilisés (brique, agglo, plâtre, etc.)."
+            },
+            {
+              "id": "ctrl_02_01_002_verification_de_la_conformite_du_tracage",
+              "titre": "Vérification de la conformité du traçage",
+              "description": "Contrôler que le traçage respecte les plans."
+            },
+            {
+              "id": "ctrl_02_01_003_verification_de_limplantation_et_dimension_des_ouv",
+              "titre": "Vérification de l’implantation et dimension des ouvertures",
+              "description": "Vérifier la position et les dimensions des portes, fenêtres, etc."
+            },
+            {
+              "id": "ctrl_02_01_004_verification_du_respect_des_alignements_et_de_lapl",
+              "titre": "Vérification du respect des alignements et de l’aplomb",
+              "description": "Contrôler l’alignement et la verticalité des murs."
+            },
+            {
+              "id": "ctrl_02_01_005_verification_des_ancrages_avec_le_support",
+              "titre": "Vérification des ancrages avec le support",
+              "description": "S’assurer que les ancrages sont correctement mis en place."
+            },
+            {
+              "id": "ctrl_02_01_006_verification_de_la_mise_en_place_des_joints_vertic",
+              "titre": "Vérification de la mise en place des joints verticaux et horizontaux",
+              "description": "Contrôler la qualité et la régularité des joints."
+            },
+            {
+              "id": "ctrl_02_01_007_verification_de_la_nature_et_la_mise_en_place_des_",
+              "titre": "Vérification de la nature et la mise en place des plaques isolantes",
+              "description": "S’assurer de la pose correcte des isolants."
+            },
+            {
+              "id": "ctrl_02_01_008_verification_de_la_mise_en_place_du_grillage_entre",
+              "titre": "Vérification de la mise en place du grillage entre deux corps différents",
+              "description": "Contrôler l’installation du grillage de liaison."
+            }
+          ]
+        },
+        {
+          "id": "act_02_02_enduit_ciment_chaux_platre",
+          "nom": "Enduit : ciment, chaux, plâtre",
+          "controles": [
+            {
+              "id": "ctrl_02_02_001_verification_du_dosage_du_mortier",
+              "titre": "Vérification du dosage du mortier",
+              "description": "Contrôler la proportion des composants du mortier."
+            },
+            {
+              "id": "ctrl_02_02_002_verification_de_lapplication_des_couches_denduit",
+              "titre": "Vérification de l’application des couches d’enduit",
+              "description": "S’assurer de la bonne application des enduits."
+            },
+            {
+              "id": "ctrl_02_02_003_verification_du_respect_de_lepaisseur_de_lenduit",
+              "titre": "Vérification du respect de l’épaisseur de l’enduit",
+              "description": "Contrôler l’épaisseur des couches."
+            },
+            {
+              "id": "ctrl_02_02_004_verification_de_laplomb",
+              "titre": "Vérification de l’aplomb",
+              "description": "Vérifier la verticalité des surfaces enduites."
+            },
+            {
+              "id": "ctrl_02_02_005_verification_de_la_finition_et_de_laspect_visuel",
+              "titre": "Vérification de la finition et de l’aspect visuel",
+              "description": "Contrôler l’aspect final de l’enduit."
+            }
+          ]
+        },
+        {
+          "id": "act_02_03_etancheite",
+          "nom": "Étanchéité",
+          "controles": [
+            {
+              "id": "ctrl_02_03_001_verification_de_la_nature",
+              "titre": "Vérification de la nature",
+              "description": "Identifier le type d’étanchéité (repiquage, peinture, PS4, etc.)."
+            },
+            {
+              "id": "ctrl_02_03_002_verification_de_lapplication_conforme",
+              "titre": "Vérification de l’application conforme",
+              "description": "S’assurer que la pose respecte les spécifications techniques."
+            },
+            {
+              "id": "ctrl_02_03_003_essai_detancheite_mise_en_eau",
+              "titre": "Essai d’étanchéité (mise en eau)",
+              "description": "Tester l’étanchéité par mise en eau."
+            }
+          ]
+        },
+        {
+          "id": "act_02_04_revetements_marbre_gres_carrelage",
+          "nom": "Revêtements : marbre, grès, carrelage",
+          "controles": [
+            {
+              "id": "ctrl_02_04_001_transmission_et_approbation_des_plans_par_le_clien",
+              "titre": "Transmission et approbation des plans par le client",
+              "description": "Confirmer que les plans ont été approuvés par le client."
+            },
+            {
+              "id": "ctrl_02_04_002_verification_de_lhomogeneite_de_la_couleur",
+              "titre": "Vérification de l’homogénéité de la couleur",
+              "description": "Contrôler la couleur avant pose par immersion si nécessaire."
+            },
+            {
+              "id": "ctrl_02_04_003_reception_avec_go_et_sous_traitants",
+              "titre": "Réception avec GO et sous-traitants",
+              "description": "Organiser une réception conjointe avec les parties prenantes."
+            },
+            {
+              "id": "ctrl_02_04_004_controle_du_dosage_sable_ciment",
+              "titre": "Contrôle du dosage sable/ciment",
+              "description": "Vérifier les proportions du mortier de pose."
+            },
+            {
+              "id": "ctrl_02_04_005_verification_visuelle_des_joints",
+              "titre": "Vérification visuelle des joints",
+              "description": "Inspecter l’aspect et la régularité des joints."
+            },
+            {
+              "id": "ctrl_02_04_006_tracage_de_calepinage",
+              "titre": "Traçage de calepinage",
+              "description": "Vérifier le calepinage avant pose."
+            },
+            {
+              "id": "ctrl_02_04_007_verification_de_lalignement",
+              "titre": "Vérification de l’alignement",
+              "description": "Contrôler l’alignement des carreaux."
+            },
+            {
+              "id": "ctrl_02_04_008_controle_de_planeite",
+              "titre": "Contrôle de planéité",
+              "description": "Vérifier la planéité de la surface."
+            },
+            {
+              "id": "ctrl_02_04_009_controle_de_la_couleur",
+              "titre": "Contrôle de la couleur",
+              "description": "S’assurer de l’uniformité des coloris."
+            },
+            {
+              "id": "ctrl_02_04_010_controle_en_fin_de_tache_et_reprise_eventuelle",
+              "titre": "Contrôle en fin de tâche et reprise éventuelle",
+              "description": "Inspecter le résultat final et organiser les reprises si nécessaire."
+            }
+          ]
+        },
+        {
+          "id": "act_02_05_faux_plafond_traditionnel_placoplatre",
+          "nom": "Faux plafond : traditionnel, Placoplatre",
+          "controles": [
+            {
+              "id": "ctrl_02_05_001_verification_de_l_approbation_des_plans",
+              "titre": "Vérification de l'approbation des plans",
+              "description": "Confirmer que les plans détaillés du faux plafond, incluant les niveaux, les réservations et les types de plaques, ont été formellement approuvés par le maître d'ouvrage."
+            },
+            {
+              "id": "ctrl_02_05_002_verification_de_la_transmission",
+              "titre": "Vérification de la transmission",
+              "description": "S'assurer que les échantillons des plaques, des profilés et des finitions ont été soumis au client et que son approbation écrite a été obtenue."
+            },
+            {
+              "id": "ctrl_02_05_003_approbation_des_echantillons",
+              "titre": "Approbation des échantillons",
+              "description": "Contrôler que les matériaux livrés sur site correspondent strictement aux échantillons validés."
+            },
+            {
+              "id": "ctrl_02_05_004_controle_de_la_manutention_et_du_stockage",
+              "titre": "Contrôle de la manutention et du stockage",
+              "description": "Vérifier que les produits sont manipulés avec soin pour éviter tout dommage et qu'ils sont stockés à l'abri de l'humidité, sur des palettes, dans un local sec et bien ventilé."
+            },
+            {
+              "id": "ctrl_02_05_005_verification_du_tracage_par_rapport_au_niveau_de_f",
+              "titre": "Vérification du traçage par rapport au niveau de finition",
+              "description": "Contrôler la précision du traçage des suspentes et des profilés en utilisant un niveau laser pour garantir un plafond parfaitement horizontal et respectant les côtes du plan."
+            },
+            {
+              "id": "ctrl_02_05_006_verification_de_l_emplacement_et_de_la_fixation_de",
+              "titre": "Vérification de l'emplacement et de la fixation des polochons",
+              "description": "S'assurer que les suspentes (polochons) sont correctement positionnées selon le plan de calepinage et solidement fixées à la structure porteuse avec les chevilles adaptées."
+            },
+            {
+              "id": "ctrl_02_05_007_verification_du_traitement_des_joints_avec_les_pou",
+              "titre": "Vérification du traitement des joints avec les poutres de rive",
+              "description": "Contrôler que les joints périphériques entre le faux plafond et les murs ou poutres sont correctement réalisés avec un joint souple pour permettre la dilatation."
+            },
+            {
+              "id": "ctrl_02_05_008_verification_de_l_orientation_des_joints",
+              "titre": "Vérification de l'orientation des joints",
+              "description": "Pour les plafonds en staff lisse, s'assurer que les joints longitudinaux entre les plaques sont orientés perpendiculairement à la principale source de lumière naturelle pour minimiser leur visibilité."
+            },
+            {
+              "id": "ctrl_02_05_009_verification_de_l_alignement_des_aretes",
+              "titre": "Vérification de l'alignement des arêtes",
+              "description": "Contrôler que toutes les arêtes et les angles sont parfaitement alignés et droits, sans défaut de mise en œuvre."
+            },
+            {
+              "id": "ctrl_02_05_010_verification_du_traitement_des_joues_des_joints_cr",
+              "titre": "Vérification du traitement des joues des joints creux",
+              "description": "Inspecter la qualité de la pose et de la finition des joints entre les plaques (masticage et ponçage) pour obtenir une surface parfaitement lisse et uniforme."
+            },
+            {
+              "id": "ctrl_02_05_011_verification_de_la_planeite_generale",
+              "titre": "Vérification de la planéité générale",
+              "description": "Contrôler la planéité de l'ensemble de la surface du plafond à l'aide d'une règle de 2 mètres."
+            },
+            {
+              "id": "ctrl_02_05_012_controle_final_et_validation_des_reprises",
+              "titre": "Contrôle final et validation des reprises",
+              "description": "Procéder à une inspection visuelle exhaustive sous un éclairage rasant pour identifier les éventuels défauts (bullage, traces de ponçage, fissures) et s'assurer que les reprises sont effectuées avant validation."
+            }
+          ]
+        },
+        {
+          "id": "act_02_06_peinture_a_eau_laquee_decoratif_monocouche_gravita",
+          "nom": "Peinture (à eau, laquée, décoratif, monocouche, gravita",
+          "controles": [
+            {
+              "id": "ctrl_02_06_001_verification_de_l_approbation_des_nuanciers_et_ech",
+              "titre": "Vérification de l'approbation des nuanciers et échantillons",
+              "description": "Confirmer l'approbation écrite du client sur le choix des couleurs, des produits (type de peinture) et des finis (mat, velours, satiné, brillant). Conserver les échantillons approuvés sur site comme référence."
+            },
+            {
+              "id": "ctrl_02_06_002_controle_de_la_conformite_des_livraisons",
+              "titre": "Contrôle de la conformité des livraisons",
+              "description": "Vérifier que les produits livrés (peintures, enduits de lissage, sous-couches) correspondent exactement aux références approuvées et sont dans leurs dates de péremption."
+            },
+            {
+              "id": "ctrl_02_06_003_controle_de_la_preparation_des_supports",
+              "titre": "Contrôle de la préparation des supports",
+              "description": "S'assurer que les supports (murs, plafonds, boiseries) sont propres, secs, lisses, dépoussiérés, dégraissés et exempts de toute imperfection (fissures, trous) avant application de la première couche. Vérifier la compatibilité des primaires d'accroche avec le support."
+            },
+            {
+              "id": "ctrl_02_06_004_validation_du_calepinage_des_couleurs",
+              "titre": "Validation du calepinage des couleurs",
+              "description": "Confirmer que le plan de repérage des couleurs (calepinage) est respecté et que chaque zone est clairement identifiée pour éviter les erreurs d'application."
+            },
+            {
+              "id": "ctrl_02_06_005_controle_du_respect_de_la_prescription_technique_d",
+              "titre": "Contrôle du respect de la prescription technique du fabricant",
+              "description": "S'assurer que les dilutions, le temps de séchage entre les couches, les températures d'application et les méthodes (roulage, pistolet) sont strictement respectées selon la documentation technique."
+            },
+            {
+              "id": "ctrl_02_06_006_controle_de_la_mise_en_place_des_protections",
+              "titre": "Contrôle de la mise en place des protections",
+              "description": "Vérifier que les menuiseries, sols, prises et interrupteurs sont parfaitement protégés par des films adhésifs et des rubans de masquage de qualité pour éviter toute projection."
+            },
+            {
+              "id": "ctrl_02_06_007_coordination_des_interfaces_et_gestion_des_transit",
+              "titre": "Coordination des interfaces et gestion des transitions",
+              "description": "Vérifier la netteté et la rectitude des transitions de couleur entre les différentes surfaces (murs/plafonds, murs/sols, angles) et entre les corps d'état (électricien, plâtrier)."
+            },
+            {
+              "id": "ctrl_02_06_008_controle_final_de_la_finition",
+              "titre": "Contrôle final de la finition",
+              "description": "Inspecter la qualité d'application sous un éclairage naturel et artificiel : absence de traces de rouleau, d'éclaboussures, de défauts d'opacité, de dépôts de poussière et uniformité parfaite de la couleur et de la texture."
+            }
+          ]
+        },
+        {
+          "id": "act_02_07_menuiserie_aluminium",
+          "nom": "Menuiserie Aluminium",
+          "controles": [
+            {
+              "id": "ctrl_02_07_001_verification_de_l_approbation_des_plans_de_fabrica",
+              "titre": "Vérification de l'approbation des plans de fabrication et des échantillons",
+              "description": "Confirmer l'approbation des dessins de définition (marque, type du profilé, cotes, coupes, type de verre, couleur de laquage) et de l'échantillon physique de la menuiserie."
+            },
+            {
+              "id": "ctrl_02_07_002_controle_dimensionnel_et_de_l_implantation_des_blo",
+              "titre": "Contrôle dimensionnel et de l'implantation des blocs-ports ou faux-cadres",
+              "description": "Vérifier la pose et le scellement des supports dans la maçonnerie, en contrôlant les cotes, les niveaux et les aplombs avant la pose des menuiseries."
+            },
+            {
+              "id": "ctrl_02_07_003_controle_de_l_application_de_la_mousse_expansive",
+              "titre": "Contrôle de l'application de la mousse expansive",
+              "description": "S'assurer que les lames d'air autour du dormant sont comblées de mousse expansive à faible expansion pour garantir une fixation rigide sans déformation."
+            },
+            {
+              "id": "ctrl_02_07_004_controle_de_la_planeite_et_de_l_aplomb_des_menuise",
+              "titre": "Contrôle de la planéité et de l'aplomb des menuiseries posées",
+              "description": "Vérifier que les ouvrants et les dormants sont parfaitement d'aplomb, de niveau et sans déformation après pose et serrage."
+            },
+            {
+              "id": "ctrl_02_07_005_controle_des_points_de_fixation_et_des_elements_de",
+              "titre": "Contrôle des points de fixation et des éléments de quincaillerie",
+              "description": "Inspecter la présence, le type et la qualité de toutes les vis de fixation, ainsi que le bon fonctionnement de la quincaillerie (paumelles, crémones, poignées)."
+            },
+            {
+              "id": "ctrl_02_07_006_controle_de_la_presence_et_de_l_integrite_des_join",
+              "titre": "Contrôle de la présence et de l'intégrité des joints d'étanchéité",
+              "description": "Vérifier la présence du joint périphérique iso-phonique et/ou d'étanchéité autour du vitrage et du dormant, et s'assurer de son parfait état."
+            },
+            {
+              "id": "ctrl_02_07_007_controle_du_fonctionnement_des_volets_roulants_et_",
+              "titre": "Contrôle du fonctionnement des volets roulants et des ouvrants",
+              "description": "Tester manuellement et électriquement (le cas échéant) l'ouverture, la fermeture, le blocage et le réglage de tous les éléments mobiles."
+            },
+            {
+              "id": "ctrl_02_07_008_controle_final_d_etancheite_a_l_air_et_a_l_eau",
+              "titre": "Contrôle final d'étanchéité à l'air et à l'eau",
+              "description": "Inspecter visuellement l'absence de passage d'air et d'eau après une simulation de pluie ou à l'aide d'un fumigène."
+            }
+          ]
+        },
+        {
+          "id": "act_02_08_menuiserie_bois",
+          "nom": "Menuiserie Bois",
+          "controles": [
+            {
+              "id": "ctrl_02_08_001_verification_de_l_approbation_des_plans_de_fabrica",
+              "titre": "Vérification de l'approbation des plans de fabrication et des échantillons",
+              "description": "Confirmer l'approbation des dessins de définition (cotes, coupes, type de bois, couleur de laquage, tinte) et de l'échantillon physique de la menuiserie."
+            },
+            {
+              "id": "ctrl_02_08_002_controle_dimensionnel_et_de_l_implantation_des_blo",
+              "titre": "Contrôle dimensionnel et de l'implantation des blocs-ports ou faux-cadres",
+              "description": "Vérifier la pose et le scellement des supports dans la maçonnerie, en contrôlant les cotes, les niveaux et les aplombs avant la pose des menuiseries."
+            },
+            {
+              "id": "ctrl_02_08_003_controle_de_l_application_de_la_mousse_expansive",
+              "titre": "Contrôle de l'application de la mousse expansive",
+              "description": "S'assurer que les lames d'air autour du dormant sont comblées de mousse expansive à faible expansion pour garantir une fixation rigide sans déformation."
+            },
+            {
+              "id": "ctrl_02_08_004_controle_de_la_planeite_et_de_l_aplomb_des_menuise",
+              "titre": "Contrôle de la planéité et de l'aplomb des menuiseries posées",
+              "description": "Vérifier que les ouvrants et les dormants sont parfaitement d'aplomb, de niveau et sans déformation après pose et serrage."
+            },
+            {
+              "id": "ctrl_02_08_005_controle_des_points_de_fixation_et_des_elements_de",
+              "titre": "Contrôle des points de fixation et des éléments de quincaillerie",
+              "description": "Inspecter la présence, le type et la qualité de toutes les vis de fixation, ainsi que le bon fonctionnement de la quincaillerie (paumelles, crémones, poignées)."
+            },
+            {
+              "id": "ctrl_02_08_006_controle_de_la_presence_et_de_l_integrite_des_join",
+              "titre": "Contrôle de la présence et de l'intégrité des joints d'étanchéité",
+              "description": "Vérifier la présence du joint périphérique iso-phonique et/ou d'étanchéité autour du vitrage et du dormant, et s'assurer de son parfait état."
+            },
+            {
+              "id": "ctrl_02_08_007_controle_du_fonctionnement_des_ouvrants",
+              "titre": "Contrôle du fonctionnement des ouvrants",
+              "description": "Tester manuellement l'ouverture, la fermeture, le blocage et le réglage de tous les éléments mobiles."
+            },
+            {
+              "id": "ctrl_02_08_008_controle_final_d_etancheite_a_l_air_et_a_l_eau",
+              "titre": "Contrôle final d'étanchéité à l'air et à l'eau",
+              "description": "Inspecter visuellement l'absence de passage d'air et d'eau après une simulation de pluie ou à l'aide d'un fumigène."
+            },
+            {
+              "id": "ctrl_02_08_009_controle_du_traitement_du_bois",
+              "titre": "Contrôle du traitement du bois",
+              "description": "Vérifier que le bois a reçu les traitements appropriés (autoclave, fongicide, insecticide) en fonction de son usage et de son exposition."
+            },
+            {
+              "id": "ctrl_02_08_010_controle_de_la_finition_lasure_vernis_peinture",
+              "titre": "Contrôle de la finition (lasure, vernis, peinture)",
+              "description": "S'assurer de la qualité d'application de la finition (nombre de couches, uniformité, absence de coulures) et de sa conformité à l'échantillon approuvé."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lot_03_voirie_et_reseaux_divers",
+      "nom": "Voirie et Réseaux Divers",
+      "activites": [
+        {
+          "id": "act_03_01_assainissement",
+          "nom": "Assainissement",
+          "controles": [
+            {
+              "id": "ctrl_03_01_001_stockage_des_tubes",
+              "titre": "Stockage des tubes",
+              "description": "S’assurer que les tubes sont stockés correctement."
+            },
+            {
+              "id": "ctrl_03_01_002_tracage_avant_ouverture",
+              "titre": "Traçage avant ouverture",
+              "description": "Vérifier le traçage des tranchées."
+            },
+            {
+              "id": "ctrl_03_01_003_respect_des_epaisseurs_et_qualite_du_remblai",
+              "titre": "Respect des épaisseurs et qualité du remblai",
+              "description": "Contrôler la qualité et l’épaisseur des remblais."
+            },
+            {
+              "id": "ctrl_03_01_004_verification_des_caracteristiques_des_tubes",
+              "titre": "Vérification des caractéristiques des tubes",
+              "description": "Contrôler diamètre, marque et épaisseur."
+            },
+            {
+              "id": "ctrl_03_01_005_verification_des_cotes_par_rapport_au_plan",
+              "titre": "Vérification des cotes par rapport au plan",
+              "description": "S’assuré du respect des dimensions."
+            },
+            {
+              "id": "ctrl_03_01_006_preparation_support_avant_collage",
+              "titre": "Préparation support avant collage",
+              "description": "Vérifier la préparation des surfaces."
+            },
+            {
+              "id": "ctrl_03_01_007_preparation_du_lit_de_sable",
+              "titre": "Préparation du lit de sable",
+              "description": "Contrôler la mise en place du lit de sable."
+            },
+            {
+              "id": "ctrl_03_01_008_verification_de_la_cote_fil_deau",
+              "titre": "Vérification de la cote fil d’eau",
+              "description": "Contrôler la pente et l’écoulement."
+            },
+            {
+              "id": "ctrl_03_01_009_essai_detancheite_mise_en_eau",
+              "titre": "Essai d’étanchéité (mise en eau)",
+              "description": "Tester l’étanchéité des canalisations."
+            },
+            {
+              "id": "ctrl_03_01_010_verification_lors_du_coulage_beton",
+              "titre": "Vérification lors du coulage béton",
+              "description": "Contrôler les intégrations dans le béton."
+            },
+            {
+              "id": "ctrl_03_01_011_implantation_des_conduites",
+              "titre": "Implantation des conduites",
+              "description": "Vérifier le placement des canalisations."
+            },
+            {
+              "id": "ctrl_03_01_012_essai_decoulement",
+              "titre": "Essai d’écoulement",
+              "description": "Tester le bon écoulement des eaux."
+            }
+          ]
+        },
+        {
+          "id": "act_03_02_regard_bordure_caniveau",
+          "nom": "Regard, Bordure, Caniveau",
+          "controles": [
+            {
+              "id": "ctrl_03_02_001_verification_de_l_approbation_des_plans_d_executio",
+              "titre": "Vérification de l'approbation des plans d'exécution",
+              "description": "Confirmer que les plans de détail (cotes, profondeurs, pentes, matériaux) ont été approuvés."
+            },
+            {
+              "id": "ctrl_03_02_002_verification_des_dimensions",
+              "titre": "Vérification des dimensions",
+              "description": "Contrôler les dimensions internes et externes des regards, la longueur et la section des bordures et caniveaux."
+            },
+            {
+              "id": "ctrl_03_02_003_verification_de_la_cote_fil_d_eau_et_des_pentes",
+              "titre": "Vérification de la cote \"fil d'eau\" et des pentes",
+              "description": "Mesurer la pente et l'altitude du fond des regards et caniveaux pour garantir un écoulement gravitaire correct vers l'exutoire."
+            },
+            {
+              "id": "ctrl_03_02_004_essai_d_etancheite_mise_en_eau_des_regards",
+              "titre": "Essai d'étanchéité (mise en eau) des regards",
+              "description": "Mettre le regard en eau pour une durée définie par le cahier des charges et contrôler les variations de niveau pour détecter d'éventuelles fuites."
+            },
+            {
+              "id": "ctrl_03_02_005_implantation_et_alignement",
+              "titre": "Implantation et alignement",
+              "description": "Contrôler l'alignement parfait des bordures et caniveaux à l'aide de cordeaux et de niveaux laser, et le positionnement XY des regards."
+            }
+          ]
+        },
+        {
+          "id": "act_03_03_voiries",
+          "nom": "Voiries",
+          "controles": [
+            {
+              "id": "ctrl_03_03_001_verification_de_lapprobation_des_plans",
+              "titre": "Vérification de l’approbation des plans",
+              "description": "Confirmer l’approbation des plans de voirie."
+            },
+            {
+              "id": "ctrl_03_03_002_verification_de_la_specification_et_lepaisseur_des",
+              "titre": "Vérification de la spécification et l’épaisseur des couches",
+              "description": "Contrôler le respect des épaisseurs et types de couches."
+            },
+            {
+              "id": "ctrl_03_03_003_verification_de_lapplication_des_couches",
+              "titre": "Vérification de l’application des couches",
+              "description": "S’assurer de la mise en place correcte des couches de fondation, base, forme et revêtement."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lot_04_climatisation",
+      "nom": "Climatisation",
+      "activites": [
+        {
+          "id": "act_04_01_installation_canalisation",
+          "nom": "Installation canalisation",
+          "controles": [
+            {
+              "id": "ctrl_04_01_001_verification_de_lapprobation_des_plans",
+              "titre": "Vérification de l’approbation des plans",
+              "description": "Confirmer l’approbation des plans."
+            },
+            {
+              "id": "ctrl_04_01_002_presentation_des_echantillons",
+              "titre": "Présentation des échantillons",
+              "description": "Soumettre les échantillons pour approbation."
+            },
+            {
+              "id": "ctrl_04_01_003_etablissement_des_plans_de_reservations",
+              "titre": "Établissement des plans de réservations",
+              "description": "Transmettre les plans de réservations au responsable GO."
+            },
+            {
+              "id": "ctrl_04_01_004_pre_percage_pour_alignement",
+              "titre": "Pré-perçage pour alignement",
+              "description": "Vérifier l’alignement par pré-perçage."
+            },
+            {
+              "id": "ctrl_04_01_005_devoiement_des_canalisations",
+              "titre": "Dévoiement des canalisations",
+              "description": "Éviter les croisements avec les réseaux électriques."
+            },
+            {
+              "id": "ctrl_04_01_006_tracage_et_percage",
+              "titre": "Traçage et perçage",
+              "description": "Contrôler le traçage et les perçages."
+            },
+            {
+              "id": "ctrl_04_01_007_choix_des_chevilles_et_vis",
+              "titre": "Choix des chevilles et vis",
+              "description": "S’assurer de l’adéquation des fixations."
+            },
+            {
+              "id": "ctrl_04_01_008_pose_des_fourreaux_pvc_etancheite",
+              "titre": "Pose des fourreaux PVC / Étanchéité",
+              "description": "Vérifier la pose et l’étanchéité."
+            },
+            {
+              "id": "ctrl_04_01_009_mise_en_place_des_socles_anti_vibratiles",
+              "titre": "Mise en place des socles anti-vibratiles",
+              "description": "Contrôler l’installation des anti-vibratiles."
+            },
+            {
+              "id": "ctrl_04_01_010_mise_en_place_trappe_de_visite",
+              "titre": "Mise en place trappe de visite",
+              "description": "S’assurer de l’accessibilité des filtres."
+            },
+            {
+              "id": "ctrl_04_01_011_verification_de_laeration",
+              "titre": "Vérification de l’aération",
+              "description": "Contrôler la ventilation du local."
+            },
+            {
+              "id": "ctrl_04_01_012_verification_du_spectre_acoustique",
+              "titre": "Vérification du spectre acoustique",
+              "description": "Mesurer les niveaux sonores."
+            },
+            {
+              "id": "ctrl_04_01_013_dimensionnement_et_approbation_par_le_be",
+              "titre": "Dimensionnement et approbation par le BE",
+              "description": "Confirmer le dimensionnement par le bureau d’études."
+            },
+            {
+              "id": "ctrl_04_01_014_essais_pression",
+              "titre": "Essais pression",
+              "description": "Tester la résistance des canalisations sous pression."
+            }
+          ]
+        },
+        {
+          "id": "act_04_02_installation_des_appareillages_unites_interieures_exterieures_cta",
+          "nom": "Installation des Appareillages (Unités intérieures, extérieures, CTA",
+          "controles": [
+            {
+              "id": "ctrl_04_02_001_verification_de_l_approbation_technique_du_bureau_",
+              "titre": "Vérification de l'approbation technique du Bureau d'Études (BE)",
+              "description": "Confirmer que le dimensionnement et le choix des équipements (puissance, débit d'air, niveau sonore) ont été validés par le BE."
+            },
+            {
+              "id": "ctrl_04_02_002_controle_de_la_mise_en_place_des_socles_anti_vibra",
+              "titre": "Contrôle de la mise en place des socles anti-vibratiles",
+              "description": "Pour les unités extérieures et les groupes, s'assurer que les plots anti-vibratiles sont correctement dimensionnés et installés pour éviter toute transmission de bruit et de vibration à la structure."
+            },
+            {
+              "id": "ctrl_04_02_003_verification_de_l_accessibilite_pour_la_maintenanc",
+              "titre": "Vérification de l'accessibilité pour la maintenance",
+              "description": "S'assurer que les appareils (filtres, batteries, compresseurs) sont facilement accessibles pour l'entretien et le remplacement, en respectant les cotes de dégagement requises."
+            },
+            {
+              "id": "ctrl_04_02_004_controle_du_raccordement_electrique_et_des_liaison",
+              "titre": "Contrôle du raccordement électrique et des liaisons frigorifiques",
+              "description": "Vérifier que les connexions électriques sont réalisées par un électricien qualifié et que les liaisons frigorifiques sont étanches, isolées et sans point de frottement."
+            },
+            {
+              "id": "ctrl_04_02_005_controle_du_drainage_des_condensats",
+              "titre": "Contrôle du drainage des condensats",
+              "description": "S'assurer que la vidange des condensats est réalisée avec la pente requise, sans contre-pente, et équipée d'un siphon."
+            },
+            {
+              "id": "ctrl_04_02_006_essais_de_fonctionnement_et_de_performance",
+              "titre": "Essais de fonctionnement et de performance",
+              "description": "Après mise en service, mesurer les températures d'aspiration et de reprise, le niveau sonore, et s'assurer que toutes les fonctions (chauffage, refroidissement, ventilation) opèrent correctement."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lot_05_fluides",
+      "nom": "Fluides",
+      "activites": [
+        {
+          "id": "act_05_01_installation_canalisations_eau_air_gaz",
+          "nom": "Installation canalisations (eau, air, gaz",
+          "controles": [
+            {
+              "id": "ctrl_05_01_001_verification_de_lapprobation_des_plans",
+              "titre": "Vérification de l’approbation des plans",
+              "description": "Confirmer l’approbation des plans."
+            },
+            {
+              "id": "ctrl_05_01_002_presentation_des_echantillons",
+              "titre": "Présentation des échantillons",
+              "description": "Soumettre les échantillons pour validation."
+            },
+            {
+              "id": "ctrl_05_01_003_plans_de_reservations",
+              "titre": "Plans de réservations",
+              "description": "Transmettre les plans au responsable GO."
+            },
+            {
+              "id": "ctrl_05_01_004_pre_percage_pour_alignement",
+              "titre": "Pré-perçage pour alignement",
+              "description": "Vérifier l’alignement des percements."
+            },
+            {
+              "id": "ctrl_05_01_005_devoiement_des_canalisations_electriques",
+              "titre": "Dévoiement des canalisations électriques",
+              "description": "Éviter les interférences avec l’électricité."
+            },
+            {
+              "id": "ctrl_05_01_006_tracage_et_percage",
+              "titre": "Traçage et perçage",
+              "description": "Contrôler la précision des percements."
+            },
+            {
+              "id": "ctrl_05_01_007_choix_des_chevilles_et_vis",
+              "titre": "Choix des chevilles et vis",
+              "description": "S’assurer de la bonne fixation."
+            },
+            {
+              "id": "ctrl_05_01_008_alignement_par_rapport_aux_murs_et_plafond",
+              "titre": "Alignement par rapport aux murs et plafond",
+              "description": "Vérifier l’alignement des canalisations."
+            },
+            {
+              "id": "ctrl_05_01_009_verifier_le_serrage_des_colliers",
+              "titre": "Vérifier le serrage des colliers",
+              "description": "Contrôler le serrage des fixations."
+            },
+            {
+              "id": "ctrl_05_01_010_pose_des_fourreaux_pvc_etancheite",
+              "titre": "Pose des fourreaux PVC / Étanchéité",
+              "description": "Vérifier l’étanchéité des passages."
+            },
+            {
+              "id": "ctrl_05_01_011_protection_des_sanitaires",
+              "titre": "Protection des sanitaires",
+              "description": "S’assurer de la protection pendant le transport et la pose."
+            },
+            {
+              "id": "ctrl_05_01_012_controle_apres_raccordement",
+              "titre": "Contrôle après raccordement",
+              "description": "Vérifier les raccordements aux réseaux."
+            },
+            {
+              "id": "ctrl_05_01_013_controle_hauteur",
+              "titre": "Contrôle hauteur",
+              "description": "S’assurer du respect des côtes."
+            },
+            {
+              "id": "ctrl_05_01_014_dimensionnement_et_approbation_par_le_be",
+              "titre": "Dimensionnement et approbation par le BE",
+              "description": "Confirmer le dimensionnement."
+            },
+            {
+              "id": "ctrl_05_01_015_essais_pression",
+              "titre": "Essais pression",
+              "description": "Tester l’étanchéité sous pression."
+            },
+            {
+              "id": "ctrl_05_01_016_remplissage_et_verification_en_gravitaire",
+              "titre": "Remplissage et vérification en gravitaire",
+              "description": "Tester l’écoulement gravitaire."
+            }
+          ]
+        },
+        {
+          "id": "act_05_02_installation_des_appareillages_robinetterie_groups_chauffage",
+          "nom": "Installation des Appareillages (Robinetterie, Groups, Chauffage",
+          "controles": [
+            {
+              "id": "ctrl_05_02_001_verification_de_l_approbation_des_plans_et_des_mod",
+              "titre": "Vérification de l'approbation des plans et des modèles",
+              "description": "Confirmer l'approbation des plans d'implantation et des fiches techniques des équipements (chaudières, pompes, vannes)."
+            },
+            {
+              "id": "ctrl_05_02_002_controle_du_raccordement_aux_reseaux",
+              "titre": "Contrôle du raccordement aux réseaux",
+              "description": "Vérifier l'étanchéité et la qualité des raccords (soudure, brasure, collage) entre les appareils et les canalisations."
+            },
+            {
+              "id": "ctrl_05_02_003_controle_des_supports_et_de_la_fixation",
+              "titre": "Contrôle des supports et de la fixation",
+              "description": "S'assurer que les équipements lourds sont solidement fixés à la structure porteuse avec des supports et chevilles adaptés à leur poids et aux vibrations."
+            },
+            {
+              "id": "ctrl_05_02_004_equilibrage_hydronique_des_reseaux",
+              "titre": "Équilibrage hydronique des réseaux",
+              "description": "Pour les réseaux de chauffage/refroidissement, vérifié que le réglage et l'équilibrage des débits dans chaque circuit ont été effectués."
+            },
+            {
+              "id": "ctrl_05_02_005_mise_en_service_et_reglage_des_organes_de_regulati",
+              "titre": "Mise en service et réglage des organes de régulation",
+              "description": "Contrôler le fonctionnement des vannes thermostatiques, des détendeurs, des pressostats et des systèmes de régulation selon les paramètres de consigne."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lot_06_electrique",
+      "nom": "Électrique",
+      "activites": [
+        {
+          "id": "act_06_01_foretage",
+          "nom": "Foretage",
+          "controles": [
+            {
+              "id": "ctrl_06_01_001_verification_par_rapport_au_plan_dexecution_et_car",
+              "titre": "Vérification par rapport au plan d’exécution et carnet de câbles",
+              "description": "Contrôler la conformité avec les plans et la documentation."
+            },
+            {
+              "id": "ctrl_06_01_002_essai_de_continuite",
+              "titre": "Essai de continuité",
+              "description": "Tester la continuité des circuits."
+            },
+            {
+              "id": "ctrl_06_01_003_controle_par_rapport_au_plan_dexecution",
+              "titre": "Contrôle par rapport au plan d’exécution",
+              "description": "Vérifier le respect du plan."
+            },
+            {
+              "id": "ctrl_06_01_004_tracage_et_percage",
+              "titre": "Traçage et perçage",
+              "description": "Contrôler la précision des percements."
+            }
+          ]
+        },
+        {
+          "id": "act_06_02_cablage",
+          "nom": "Câblage",
+          "controles": [
+            {
+              "id": "ctrl_06_02_001_verification_par_rapport_au_plan_dexecution_et_car",
+              "titre": "Vérification par rapport au plan d’exécution et carnet de câbles",
+              "description": "Contrôler la conformité avec les plans et la documentation."
+            },
+            {
+              "id": "ctrl_06_02_002_essai_de_continuite",
+              "titre": "Essai de continuité",
+              "description": "Tester la continuité des circuits."
+            },
+            {
+              "id": "ctrl_06_02_003_controle_par_rapport_au_plan_dexecution",
+              "titre": "Contrôle par rapport au plan d’exécution",
+              "description": "Vérifier le respect du plan."
+            },
+            {
+              "id": "ctrl_06_02_004_tracage_et_percage",
+              "titre": "Traçage et perçage",
+              "description": "Contrôler la précision des percements."
+            },
+            {
+              "id": "ctrl_06_02_005_choix_des_chevilles_et_vis",
+              "titre": "Choix des chevilles et vis",
+              "description": "S’assurer de la fixation adaptée."
+            },
+            {
+              "id": "ctrl_06_02_006_tirer_les_cables_pour_verifier_le_serrage",
+              "titre": "Tirer les câbles pour vérifier le serrage",
+              "description": "Tester la fixation des câbles."
+            }
+          ]
+        },
+        {
+          "id": "act_06_03_appareils_de_commande_et_lustrerie",
+          "nom": "Appareils de commande et lustrerie",
+          "controles": [
+            {
+              "id": "ctrl_06_03_001_tracage_et_percage",
+              "titre": "Traçage et perçage",
+              "description": "Vérifier le placement des appareils."
+            },
+            {
+              "id": "ctrl_06_03_002_choix_des_chevilles_et_vis",
+              "titre": "Choix des chevilles et vis",
+              "description": "S’assurer de la fixation adaptée."
+            },
+            {
+              "id": "ctrl_06_03_003_essais_de_continuite_courant_fort_et_faible",
+              "titre": "Essais de continuité (courant fort et faible)",
+              "description": "Tester la continuité des circuits."
+            },
+            {
+              "id": "ctrl_06_03_004_mesure_de_lisolement_courant_fort",
+              "titre": "Mesure de l’isolement (courant fort)",
+              "description": "Contrôler l’isolation électrique."
+            },
+            {
+              "id": "ctrl_06_03_005_mesure_de_la_resistance_de_la_prise_de_terre",
+              "titre": "Mesure de la résistance de la prise de terre",
+              "description": "Vérifier la qualité de la terre."
+            },
+            {
+              "id": "ctrl_06_03_006_essais_de_fonctionnement_en_fin_de_travaux",
+              "titre": "Essais de fonctionnement en fin de travaux",
+              "description": "Tester le bon fonctionnement des installations."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lot_07_structure_metallique",
+      "nom": "Structure Métallique",
+      "activites": [
+        {
+          "id": "act_07_01_fabrication",
+          "nom": "Fabrication",
+          "controles": [
+            {
+              "id": "ctrl_07_01_001_verification_de_lapprobation_et_conformite_des_pla",
+              "titre": "Vérification de l’approbation et conformité des plans",
+              "description": "Confirmer que les plans exécutifs sont approuvés et respectés."
+            },
+            {
+              "id": "ctrl_07_01_002_verification_de_la_soudure",
+              "titre": "Vérification de la soudure",
+              "description": "Inspecter la qualité des soudures."
+            }
+          ]
+        },
+        {
+          "id": "act_07_02_montage",
+          "nom": "Montage",
+          "controles": [
+            {
+              "id": "ctrl_07_02_001_verification_de_lalignement_des_poteaux",
+              "titre": "Vérification de l’alignement des poteaux",
+              "description": "Contrôler l’alignement des éléments verticaux."
+            },
+            {
+              "id": "ctrl_07_02_002_verification_du_respect_de_laplomb",
+              "titre": "Vérification du respect de l’aplomb",
+              "description": "S’assurer de la verticalité des structures."
+            },
+            {
+              "id": "ctrl_07_02_003_verification_du_boulonnage_et_serrage",
+              "titre": "Vérification du boulonnage et serrage",
+              "description": "Contrôler le serrage des boulons."
+            }
+          ]
+        },
+        {
+          "id": "act_07_03_peinture",
+          "nom": "Peinture",
+          "controles": [
+            {
+              "id": "ctrl_07_03_001_verification_de_la_peinture",
+              "titre": "Vérification de la peinture",
+              "description": "Contrôler le type, le nombre de couches et l’épaisseur."
+            }
+          ]
+        },
+        {
+          "id": "act_07_04_pose_de_la_couverture_et_du_bardage",
+          "nom": "Pose de la couverture et du bardage",
+          "controles": [
+            {
+              "id": "ctrl_07_04_001_verification_de_la_pose_de_la_couverture",
+              "titre": "Vérification de la pose de la couverture",
+              "description": "S’assurer de la pose correcte des tôles."
+            },
+            {
+              "id": "ctrl_07_04_002_verification_du_recouvrement_et_de_la_planeite",
+              "titre": "Vérification du recouvrement et de la planéité",
+              "description": "Contrôler l’étanchéité et la planéité de la couverture."
+            },
+            {
+              "id": "ctrl_07_04_003_verification_de_la_pose_des_accessoires_bavette_fa",
+              "titre": "Vérification de la pose des accessoires (bavette, faitière, etc.)",
+              "description": "S’assurer de la pose correcte des éléments d’étanchéité."
+            },
+            {
+              "id": "ctrl_07_04_004_verification_du_plombage",
+              "titre": "Vérification du plombage",
+              "description": "Contrôler l’étanchéité des joints (silicone, mousse, etc.)."
+            }
+          ]
+        },
+        {
+          "id": "act_07_05_galvanisation",
+          "nom": "Galvanisation",
+          "controles": [
+            {
+              "id": "ctrl_07_05_001_verification_de_la_galvaniser",
+              "titre": "Vérification de la galvaniser",
+              "description": "Contrôler le type, le nombre de couches et l’épaisseur."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

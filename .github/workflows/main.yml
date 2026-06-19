@@ -1,0 +1,64 @@
+name: Build and Deploy Flutter Web App
+
+on:
+  push:
+    branches:
+      - develop  
+
+env:
+  HARBOR_REGISTRY: harbor-reg.zetabox.tn 
+  IMAGE_NAME: dashboard  
+  TAG: ${{ github.run_number }}-${{ github.ref_name }}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.24.5'  
+
+    - name: Clean
+      run: flutter clean
+
+    - name: Install dependencies
+      run: flutter pub get
+
+    - name: Build Flutter Web
+      run: flutter build web --base-href "/"
+
+    - name: Add CA certificate to Docker
+      env:
+       HARBOR_CA_CERT: ${{ secrets.HARBOR_CA_CERT }}  
+      run: |
+          sudo mkdir -p /etc/docker/certs.d/$HARBOR_REGISTRY
+          echo "${{ secrets.HARBOR_CA_CERT }}" | sudo tee /etc/docker/certs.d/$HARBOR_REGISTRY/ca.crt > /dev/null
+    - name: Log in to Harbor Registry
+      run: |
+        echo "${{ secrets.HARBOR_PASSWORD }}" | docker login $HARBOR_REGISTRY -u "${{ secrets.HARBOR_USERNAME }}" --password-stdin
+
+    - name: Build Docker image
+      run: |  
+        docker build -t $HARBOR_REGISTRY/construction-dashboard/$IMAGE_NAME:$TAG .
+
+    - name: Push Docker image to Harbor
+      run: |
+        docker push $HARBOR_REGISTRY/construction-dashboard/$IMAGE_NAME:$TAG 
+
+    - name: Deploy via SSH
+      uses: appleboy/ssh-action@v0.1.10
+      with:
+        host: ${{ secrets.SSH_HOST }} 
+        username: ${{ secrets.SSH_USER }} 
+        password: ${{ secrets.SSH_PASSWORD }}
+        envs: HARBOR_REGISTRY,IMAGE_NAME,TAG
+        script: |
+          docker pull $HARBOR_REGISTRY/construction-dashboard/$IMAGE_NAME:$TAG
+          docker stop constructiondashboard || true
+          docker rm constructiondashboard || true
+          docker run -d -p 8016:80 --name constructiondashboard --restart always $HARBOR_REGISTRY/construction-dashboard/$IMAGE_NAME:$TAG

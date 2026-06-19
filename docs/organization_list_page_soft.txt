@@ -1,0 +1,69 @@
+// Calm / Soft Organizations list page (Flutter)
+// File: lib/features/organization/presentation/pages/organization_list_page_soft.dart
+
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:constructiondashboard/features/organization/presentation/controllers/organization_controller.dart';
+import 'package:constructiondashboard/features/organization/domain/entities/organization.dart';
+import 'package:constructiondashboard/features/organization/presentation/widgets/organization_form_dialog.dart';
+
+class OrganizationListSoftPage extends StatelessWidget {
+  OrganizationListSoftPage({Key? key}) : super(key: key);
+  final OrganizationController controller = Get.find();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: const Color(0xFFF6F8FB),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        centerTitle: true,
+        title: const Text('Organisations'),
+        actions: [
+          TextButton.icon(onPressed: () => _openForm(context), icon: const Icon(Icons.add), label: const Text('Ajouter')),
+        ],
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          children: [
+            // Search field
+            Container(
+              decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(12), boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.04), blurRadius: 12)]),
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+              child: Row(children: [const Icon(Icons.search), const SizedBox(width: 8), Expanded(child: TextField(onChanged: (v) => controller.search(v), decoration: const InputDecoration(hintText: 'Rechercher une organisation', border: InputBorder.none)))]),
+            ),
+            const SizedBox(height: 16),
+            Expanded(
+              child: Obx(() {
+                if (controller.isLoading.value) return const Center(child: CircularProgressIndicator());
+                final list = controller.filteredOrganizations;
+                if (list.isEmpty) return const Center(child: Text('Aucune organisation'));
+                return ListView.separated(
+                  itemCount: list.length,
+                  separatorBuilder: (_, __) => const SizedBox(height: 12),
+                  itemBuilder: (context, index) {
+                    final org = list[index];
+                    return ListTile(
+                      tileColor: Colors.white,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                      leading: CircleAvatar(backgroundColor: const Color(0xFFEEF2FF), child: Text(org.name.isNotEmpty ? org.name[0] : '?')),
+                      title: Text(org.name),
+                      subtitle: Text(org.organismeType ?? 'Non spécifié'),
+                      trailing: Row(mainAxisSize: MainAxisSize.min, children: [IconButton(icon: const Icon(Icons.edit), onPressed: () => _openForm(context, organization: org)), IconButton(icon: const Icon(Icons.delete_outline), onPressed: () => controller.deleteOrganization(org.id))]),
+                    );
+                  },
+                );
+              }),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _openForm(BuildContext context, {Organization? organization}) {
+    showDialog(context: context, builder: (_) => OrganizationFormDialog(organization: organization));
+  }
+}

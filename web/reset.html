@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <base href="$FLUTTER_BASE_HREF">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reinitialisation - PI Project</title>
+  <style>
+    body {
+      align-items: center;
+      background: #f8fafc;
+      color: #1e293b;
+      display: flex;
+      font: 600 16px Arial, sans-serif;
+      height: 100vh;
+      justify-content: center;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  Reinitialisation de l'application...
+  <script>
+    (async () => {
+      try {
+        if ('serviceWorker' in navigator) {
+          const registrations = await navigator.serviceWorker.getRegistrations();
+          await Promise.all(registrations.map((registration) => registration.unregister()));
+        }
+
+        if ('caches' in window) {
+          const keys = await caches.keys();
+          await Promise.all(keys.map((key) => caches.delete(key)));
+        }
+      } finally {
+        location.replace('/?cache-reset=' + Date.now() + '#/login');
+      }
+    })();
+  </script>
+</body>
+</html>

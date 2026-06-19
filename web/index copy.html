@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<title>Diagramme de Classes — PI PROJECT</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #dde3ec;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 11px;
+  padding: 20px;
+}
+h1 {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 16px;
+  color: #1a202c;
+}
+.scroll { overflow: auto; }
+.canvas {
+  position: relative;
+  overflow: visible;
+  width: 2000px;
+  height: 1700px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 24px rgba(0,0,0,.12);
+}
+
+.cls {
+  position: absolute;
+  border: 2px solid #4a5568;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 2px 3px 8px rgba(0,0,0,.10);
+}
+.hd {
+  text-align: center;
+  font-weight: 700;
+  font-size: 11.5px;
+  padding: 5px 8px;
+  border-bottom: 2px solid #4a5568;
+}
+.sec {
+  padding: 4px 9px;
+  border-bottom: 1px dashed #a0aec0;
+  line-height: 1.75;
+}
+.sec:last-child { border-bottom: none; }
+.a { font-size: 10.5px; color: #2d3748; }
+.a::before { content: '- '; color: #718096; }
+.m { font-size: 10.5px; color: #1a365d; }
+.m::before { content: '+ '; color: #2b6cb0; font-weight: 700; }
+
+.blue   { background:#bee3f8; }
+.green  { background:#c6f6d5; }
+.purple { background:#e9d8fd; }
+.yellow { background:#fefcbf; }
+.orange { background:#feebc8; }
+.red    { background:#fed7d7; }
+.teal   { background:#b2f5ea; }
+.pink   { background:#fed7e2; }
+.gray   { background:#e2e8f0; }
+.indigo { background:#c3dafe; }
+.lime   { background:#d9f99d; }
+.cyan   { background:#cffafe; }
+
+.cls { z-index: 2; }
+svg.ov {
+  z-index: 1;
+  position: absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  pointer-events:none;
+  overflow:visible;
+}
+.solid { stroke:#2d3748; stroke-width:1.5; fill:none; }
+.dash  { stroke:#718096; stroke-width:1.2; fill:none; stroke-dasharray:6 3; }
+text.lbl { font-size:9.5px; font-family:'Segoe UI',Arial,sans-serif; fill:#2d3748; }
+text.mul { font-size:9.5px; font-family:'Segoe UI',Arial,sans-serif; fill:#c53030; font-weight:700; }
+</style>
+</head>
+<body>
+<h1>📐 Diagramme de Classes — PI PROJECT</h1>
+<div class="scroll"><div class="canvas" id="cv">
+
+<!-- ══════════════════════════════════════
+     COLONNE A  x=20
+     Permission | Dossier | Fichier | Réserve
+══════════════════════════════════════ -->
+
+<!-- Permission  y=40 -->
+<div class="cls" id="Perm" style="left:20px;top:40px;width:155px;">
+  <div class="hd gray">Permission</div>
+  <div class="sec">
+    <div class="a">id : entier</div>
+    <div class="a">nom : texte</div>
+    <div class="a">slug : texte</div>
+  </div>
+  <div class="sec"><div class="m">verifier()</div></div>
+</div>
+<!-- Perm : top=40 height≈105 → bottom=145 | cx=97 -->
+
+<!-- Dossier  y=310 -->
+<div class="cls" id="Fold" style="left:20px;top:310px;width:155px;">
+  <div class="hd indigo">Dossier</div>
+  <div class="sec">
+    <div class="a">id : entier</div>
+    <div class="a">nom : texte</div>
+    <div class="a">parentId : entier</div>
+    <div class="a">projetId : entier</div>
+    <div class="a">creeLe : date</div>
+  </div>
+  <div class="sec">
+    <div class="m">ajouterFichier()</div>
+    <div class="m">obtenirEnfants()</div>
+  </div>
+</div>
+<!-- Fold : top=310 height≈158 → bottom=468 | cx=97 -->
+
+<!-- Fichier  y=590 -->
+<div class="cls" id="File" style="left:20px;top:590px;width:155px;">
+  <div class="hd pink">Fichier</div>
+  <div class="sec">
+    <div class="a">id : entier</div>
+    <div class="a">nom : texte</div>
+    <div class="a">chemin : texte</div>
+    <div class="a">taille : texte</div>
+    <div class="a">dossierID : entier</div>
+    <div class="a">creeLe : date</div>
+  </div>
+  <div class="sec">
+    <div class="m">telecharger()</div>
+    <div class="m">supprimer()</div>
+  </div>
+</div>
+<!-- File : top=590 height≈168 → bottom=758 -->
+
+<!-- Réserve  y=900 -->
+<div class="cls" id="Res" style="left:20px;top:900px;width:155px;">
+  <div class="hd orange">Réserve</div>
+  <div class="sec">
+    <div class="a">id : entier</div>
+    <div class="a">nom : texte</div>
+    <div class="a">declaration : texte</div>
+    <div class="a">priorite : texte</div>
+    <div class="a">localisation : texte</div>
+    <div class="a">projetId : entier</div>
+    <div class="a">utilisateurId : entier</div>
+  </div>
+  <div class="sec"><div class="m">ajouterMarqueur()</div></div>
+</div>
+<!-- Res : top=900 height≈185 → bottom=1085 -->
+
+<!-- ══════════════════════════════════════
+     COLONNE B  x=210
+     Organisation | Lot | Tâche | StatutControle
+══════════════════════════════════════ -->
+
+<!-- Organisation  y=40 -->
+<div class="cls" id="Org" style="left:210px;top:40px;width:165px;">
+  <div class="hd teal">Organisation</div>
+  <div class="sec">
+    <div class="a">id : entier</div>
+    <div class="a">nom : texte</div>
+    <div class="a">description : texte</div>
+    <div class="a">typeOrganisme : texte</div>
+    <div class="a">creeLe : date</div>
+  </div>
+  <div class="sec">
+    <div class="m">obtenirMembres()</div>
+    <div class="m">obtenirProjets()</div>
+  </div>
+</div>
+<!-- Org : top=40 height≈178 → bottom=218 | cx=292 -->
+
+<!-- Lot  y=310 -->
+<div class="cls" id="Lot" style="left:210px;top:310px;width:165px;">
+  <div class="hd lime">Lot</div>
+  <div class="sec">
+    <div class="a">id : entier</div>
+    <div class="a">nom : texte</div>
+    <div class="a">description : texte</div>
+    <div class="a">projetId : entier</div>
+    <div class="a">creeLe : date</div>
+    <div class="a">misAJourLe : date</div>
+  </div>
+  <div class="sec"><div class="m">obtenirTaches()</div></div>
+</div>
+<!-- Lot : top=310 height≈168 → bottom=478 | cx=292 -->
+
+<!-- Tâche  y=590 -->
+<div class="cls" id="Task" style="left:210px;top:590px;width:160px;">
+  <div class="hd cyan">Tâche</div>
+  <div class="sec">
+    <div class="a">id : entier</div>
+    <div class="a">nom : texte</div>
+    <div class="a">description : texte</div>
+    <div class="a">lotId : entier</div>
+  </div>
+  <div class="sec"><div class="m">obtenirControles()</div></div>
+</div>
+<!-- Task : top=590 height≈128 → bottom=718 | cx=290 -->
+
+<!-- StatutControle  y=900 -->
+<div class="cls" id="ACS" style="left:210px;top:900px;width:195px;">
+  <div class="hd yellow">Statut Contrôle Activité</div>
+  <div class="sec">
+    <div class="a">id : entier</div>
+    <div class="a">statut : texte</div>
+    <div class="a">activiteId : entier</div>
+    <div class="a">controleTacheId : entier</div>
+    <div class="a">cheminPreuve : texte</div>
+    <div class="a">description : texte</div>
+  </div>
+  <div class="sec"><div class="m">mettreAJourStatut()</div></div>
+</div>
+<!-- ACS : top=900 height≈175 → bottom=1075 -->
+
+<!-- ══════════════════════════════════════
+     COLONNE C  x=420
+     Utilisateur | Projet | ControleTache | PV
+══════════════════════════════════════ -->
+
+<!-- Utilisateur  y=40 -->
+<div class="cls" id="User" style="left:420px;top:40px;width:180px;">
+  <div class="hd blue">Utilisateur</div>
+  <div class="sec">
+    <div class="a">id : entier</div>
+    <div class="a">prenom : texte</div>
+    <div class="a">nom : texte</div>
+    <div class="a">email : texte</div>
+    <div class="a">telephone : texte</div>
+    <div class="a">motDePasse : texte</div>
+    <div class="a">estActif : booléen</div>
+    <div class="a">estAdmin : booléen</div>
+    <div class="a">organisationId : entier</div>
+    <div class="a">creeLe : date</div>
+  </div>
+  <div class="sec">
+    <div class="m">seConnecter()</div>
+    <div class="m">seDeconnecter()</div>
+    <div class="m">reinitialiserMDP()</div>
+  </div>
+</div>
+<!-- User : top=40 height≈280 → bottom=320 | cx=510 -->
+
+<!-- Projet  y=380 -->
+<div class="cls" id="Proj" style="left:420px;top:380px;width:185px;">
+  <div class="hd orange">Projet</div>
+  <div class="sec">
+    <div class="a">id : entier</div>
+    <div class="a">nom : texte</div>
+    <div class="a">description : texte</div>
+    <div class="a">dateDebut : date</div>
+    <div class="a">dateFin : date</div>
+    <div class="a">budget : réel</div>
+    <div class="a">localisation : texte</div>
+    <div class="a">latitude : texte</div>
+    <div class="a">longitude : texte</div>
+    <div class="a">estActif : booléen</div>
+    <div class="a">organisationId : entier</div>
+    <div class="a">parentId : entier</div>
+    <div class="a">creeLe : date</div>
+  </div>
+  <div class="sec">
+    <div class="m">creer()</div>
+    <div class="m">archiver()</div>
+    <div class="m">obtenirActivites()</div>
+  </div>
+</div>
+<!-- Proj : top=380 height≈310 → bottom=690 | cx=512 -->
+
+<!-- ControleTache  y=770 -->
+<div class="cls" id="TC" style="left:420px;top:770px;width:180px;">
+  <div class="hd orange">Contrôle de Tâche</div>
+  <div class="sec">
+    <div class="a">id : entier</div>
+    <div class="a">nom : texte</div>
+    <div class="a">description : texte</div>
+    <div class="a">cheminReference : texte</div>
+    <div class="a">tacheId : entier</div>
+  </div>
+  <div class="sec"><div class="m">verifierStatut()</div></div>
+</div>
+<!-- TC : top=770 height≈148 → bottom=918 | cx=510 -->
+
+<!-- PV  y=1060 -->
+<div class="cls" id="PV" style="left:420px;top:1060px;width:175px;">
+  <div class="hd purple">Procès Verbal (PV)</div>
+  <div class="sec">
+    <div class="a">id : entier</div>
+    <div class="a">nom : texte</div>
+    <div class="a">zone : texte</div>
+    <div class="a">evenementId : entier</div>
+    <div class="a">projetId : entier</div>
+    <div class="a">commentaire : texte</div>
+    <div class="a">creeLe : date</div>
+  </div>
+  <div class="sec">
+    <div class="m">ajouterObjection()</div>
+    <div class="m">valider()</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     COLONNE D  x=650
+     Entreprise | Planification | Activité | Zone
+══════════════════════════════════════ -->
+
+<!-- Entreprise  y=40 -->
+<div class="cls" id="Comp" style="left:650px;top:40px;width:180px;">
+  <div class="hd green">Entreprise</div>
+  <div class="sec">
+    <div class="a">id : entier</div>
+    <div class="a">nom : texte</div>
+    <div class="a">plan : texte</div>
+    <div class="a">sieges : entier</div>
+    <div class="a">emailFacturation : texte</div>
+    <div class="a">paysFacturation : texte</div>
+    <div class="a">statut : texte</div>
+    <div class="a">creeLe : date</div>
+  </div>
+  <div class="sec">
+    <div class="m">ajouterMembre()</div>
+    <div class="m">mettreAJourPlan()</div>
+  </div>
+</div>
+<!-- Comp : top=40 height≈222 → bottom=262 | cx=740 -->
+
+<!-- Planification  y=380 -->
+<div class="cls" id="Plan" style="left:650px;top:380px;width:175px;">
+  <div class="hd yellow">Planification</div>
+  <div class="sec">
+    <div class="a">id : entier</div>
+    <div class="a">nom : texte</div>
+    <div class="a">description : texte</div>
+    <div class="a">estActive : booléen</div>
+    <div class="a">parentId : entier</div>
+    <div class="a">projetId : entier</div>
+  </div>
+  <div class="sec">
+    <div class="m">obtenirEnfants()</div>
+    <div class="m">associerFichier()</div>
+  </div>
+</div>
+<!-- Plan : top=380 height≈168 → bottom=548 | cx=737 -->
+
+<!-- Activité  y=660 -->
+<div class="cls" id="Act" style="left:650px;top:660px;width:180px;">
+  <div class="hd green">Activité</div>
+  <div class="sec">
+    <div class="a">id : entier</div>
+    <div class="a">nom : texte</div>
+    <div class="a">description : texte</div>
+    <div class="a">documentation : texte</div>
+    <div class="a">zone : texte</div>
+    <div class="a">projetId : entier</div>
+    <div class="a">lotId : entier</div>
+    <div class="a">delai : entier</div>
+    <div class="a">creeLe : date</div>
+  </div>
+  <div class="sec">
+    <div class="m">affecterUtilisateur()</div>
+    <div class="m">suivreControle()</div>
+  </div>
+</div>
+<!-- Act : top=660 height≈222 → bottom=882 | cx=740 -->
+
+<!-- Zone  y=1060 -->
+<div class="cls" id="Zone" style="left:650px;top:1060px;width:160px;">
+  <div class="hd lime">Zone</div>
+  <div class="sec">
+    <div class="a">id : entier</div>
+    <div class="a">nom : texte</div>
+    <div class="a">projetId : entier</div>
+    <div class="a">fichierID : entier</div>
+  </div>
+  <div class="sec"><div class="m">obtenirMarqueurs()</div></div>
+</div>
+
+<!-- ══════════════════════════════════════
+     COLONNE E  x=885
+     Abonnement | Événement | JournalChantier | Notification
+══════════════════════════════════════ -->
+
+<!-- Abonnement  y=40 -->
+<div class="cls" id="Sub" style="left:885px;top:40px;width:190px;">
+  <div class="hd purple">Abonnement</div>
+  <div class="sec">
+    <div class="a">id : entier</div>
+    <div class="a">plan : texte</div>
+    <div class="a">type : texte</div>
+    <div class="a">statut : texte</div>
+    <div class="a">sieges : entier</div>
+    <div class="a">mois : entier</div>
+    <div class="a">annee : entier</div>
+    <div class="a">montantPaye : réel</div>
+    <div class="a">devise : texte</div>
+    <div class="a">entrepriseId : entier</div>
+    <div class="a">projetId : entier</div>
+    <div class="a">creeLe : date</div>
+  </div>
+  <div class="sec">
+    <div class="m">activer()</div>
+    <div class="m">annuler()</div>
+    <div class="m">genererFacture()</div>
+  </div>
+</div>
+<!-- Sub : top=40 height≈320 → bottom=360 | cx=980 -->
+
+<!-- Événement  y=420 -->
+<div class="cls" id="Evt" style="left:885px;top:420px;width:175px;">
+  <div class="hd red">Événement</div>
+  <div class="sec">
+    <div class="a">id : entier</div>
+    <div class="a">titre : texte</div>
+    <div class="a">description : texte</div>
+    <div class="a">zone : texte</div>
+    <div class="a">date : date</div>
+    <div class="a">projetId : entier</div>
+    <div class="a">creeLe : date</div>
+  </div>
+  <div class="sec">
+    <div class="m">ajouterSection()</div>
+    <div class="m">genererPV()</div>
+  </div>
+</div>
+<!-- Evt : top=420 height≈188 → bottom=608 | cx=972 -->
+
+<!-- JournalChantier  y=680 -->
+<div class="cls" id="JC" style="left:885px;top:680px;width:185px;">
+  <div class="hd teal">Journal de Chantier</div>
+  <div class="sec">
+    <div class="a">id : uuid</div>
+    <div class="a">projetId : entier</div>
+    <div class="a">utilisateurId : entier</div>
+    <div class="a">jour : entier</div>
+    <div class="a">mois : entier</div>
+    <div class="a">annee : entier</div>
+    <div class="a">statut : texte</div>
+    <div class="a">meteo : texte</div>
+    <div class="a">observations : texte</div>
+    <div class="a">envoyeLe : date</div>
+  </div>
+  <div class="sec">
+    <div class="m">verrouiller()</div>
+    <div class="m">deverrouiller()</div>
+    <div class="m">envoyerParEmail()</div>
+  </div>
+</div>
+<!-- JC : top=680 height≈248 → bottom=928 | cx=977 -->
+
+<!-- Notification  y=1060 -->
+<div class="cls" id="Notif" style="left:885px;top:1060px;width:175px;">
+  <div class="hd gray">Notification</div>
+  <div class="sec">
+    <div class="a">id : entier</div>
+    <div class="a">utilisateurId : entier</div>
+    <div class="a">message : texte</div>
+    <div class="a">entite : texte</div>
+    <div class="a">statut : texte</div>
+    <div class="a">lue : booléen</div>
+    <div class="a">creeLe : date</div>
+  </div>
+  <div class="sec">
+    <div class="m">marquerCommeLue()</div>
+    <div class="m">envoyer()</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     COLONNE F  x=1130
+     HistoriquePaiement | CodeAbonnement | Défaut
+══════════════════════════════════════ -->
+
+<!-- HistoriquePaiement  y=40 -->
+<div class="cls" id="Pay" style="left:1130px;top:40px;width:185px;">
+  <div class="hd green">Historique Paiement</div>
+  <div class="sec">
+    <div class="a">id : entier</div>
+    <div class="a">abonnementId : entier</div>
+    <div class="a">montant : réel</div>
+    <div class="a">datePaiement : date</div>
+    <div class="a">methodePaiement : texte</div>
+    <div class="a">reference : texte</div>
+  </div>
+  <div class="sec"><div class="m">obtenirRecu()</div></div>
+</div>
+<!-- Pay : top=40 height≈168 → bottom=208 | cx=1222 -->
+
+<!-- CodeAbonnement  y=340 -->
+<div class="cls" id="SC" style="left:1130px;top:340px;width:185px;">
+  <div class="hd cyan">Code Abonnement</div>
+  <div class="sec">
+    <div class="a">id : entier</div>
+    <div class="a">code : texte</div>
+    <div class="a">nombreMembres : entier</div>
+    <div class="a">projetId : entier</div>
+    <div class="a">estUtilise : booléen</div>
+    <div class="a">utilisationsRestantes : entier</div>
+  </div>
+  <div class="sec">
+    <div class="m">valider()</div>
+    <div class="m">utiliser()</div>
+  </div>
+</div>
+<!-- SC : top=340 height≈168 → bottom=508 | cx=1222 -->
+
+<!-- Défaut  y=660 — ISOLÉ COLONNE F ROW 3 -->
+<div class="cls" id="Def" style="left:1130px;top:660px;width:175px;">
+  <div class="hd red">Défaut</div>
+  <div class="sec">
+    <div class="a">id : entier</div>
+    <div class="a">nom : texte</div>
+    <div class="a">description : texte</div>
+    <div class="a">priorite : entier</div>
+    <div class="a">statut : texte</div>
+    <div class="a">utilisateurId : entier</div>
+  </div>
+  <div class="sec">
+    <div class="m">signalerDefaut()</div>
+    <div class="m">resoudre()</div>
+  </div>
+</div>
+<!-- Def : top=660 height≈168 → bottom=828 | cx=1217 -->
+
+
+<!-- ══════════════════════════════════════
+     SVG — FLÈCHES ANCRÉES AUX TABLEAUX
+     Les coordonnées sont calculées depuis les vraies positions des classes.
+     Ainsi les flèches restent collées aux bordures même si la hauteur change.
+══════════════════════════════════════ -->
+<svg class="ov" id="links" aria-hidden="true">
+  <defs>
+    <marker id="arr" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#2d3748"/>
+    </marker>
+    <marker id="darr" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="white" stroke="#718096" stroke-width="1"/>
+    </marker>
+  </defs>
+  <g id="dynamicLinks"></g>
+</svg>
+
+<script>
+(function () {
+  const canvas = document.getElementById('cv');
+  const svg = document.getElementById('links');
+  const group = document.getElementById('dynamicLinks');
+  const NS = 'http://www.w3.org/2000/svg';
+
+  function rect(id) {
+    const el = document.getElementById(id);
+    const cv = canvas.getBoundingClientRect();
+    const r = el.getBoundingClientRect();
+    return {
+      left: r.left - cv.left,
+      top: r.top - cv.top,
+      right: r.right - cv.left,
+      bottom: r.bottom - cv.top,
+      width: r.width,
+      height: r.height,
+      cx: r.left - cv.left + r.width / 2,
+      cy: r.top - cv.top + r.height / 2
+    };
+  }
+
+  function anchor(id, side, ratio = 0.5) {
+    const r = rect(id);
+    if (side === 'top') return { x: r.left + r.width * ratio, y: r.top };
+    if (side === 'bottom') return { x: r.left + r.width * ratio, y: r.bottom };
+    if (side === 'left') return { x: r.left, y: r.top + r.height * ratio };
+    if (side === 'right') return { x: r.right, y: r.top + r.height * ratio };
+    return { x: r.cx, y: r.cy };
+  }
+
+  function svgEl(name, attrs) {
+    const el = document.createElementNS(NS, name);
+    Object.entries(attrs).forEach(([k, v]) => el.setAttribute(k, v));
+    return el;
+  }
+
+  function poly(points, dashed = false) {
+    const p = svgEl('polyline', {
+      class: dashed ? 'dash' : 'solid',
+      points: points.map(pt => `${pt.x.toFixed(1)},${pt.y.toFixed(1)}`).join(' '),
+      'marker-end': dashed ? 'url(#darr)' : 'url(#arr)'
+    });
+    group.appendChild(p);
+    return p;
+  }
+
+  function text(str, x, y, cls = 'lbl') {
+    const t = svgEl('text', { class: cls, x: x.toFixed(1), y: y.toFixed(1) });
+    t.textContent = str;
+    group.appendChild(t);
+    return t;
+  }
+
+  function mid(points) {
+    let segs = [];
+    let total = 0;
+    for (let i = 0; i < points.length - 1; i++) {
+      const a = points[i], b = points[i + 1];
+      const len = Math.hypot(b.x - a.x, b.y - a.y);
+      segs.push({ a, b, len }); total += len;
+    }
+    let acc = 0, target = total / 2;
+    for (const s of segs) {
+      if (acc + s.len >= target) {
+        const k = s.len ? (target - acc) / s.len : 0;
+        return { x: s.a.x + (s.b.x - s.a.x) * k, y: s.a.y + (s.b.y - s.a.y) * k };
+      }
+      acc += s.len;
+    }
+    return points[0];
+  }
+
+  function relation({ from, fromSide, to, toSide, label, startMul, endMul, dashed = false, via = [], labelDx = 6, labelDy = -6 }) {
+    const a = anchor(from, fromSide);
+    const b = anchor(to, toSide);
+    const points = [a, ...via.map(v => ({ x: typeof v.x === 'function' ? v.x(a, b) : v.x, y: typeof v.y === 'function' ? v.y(a, b) : v.y })), b];
+    poly(points, dashed);
+    const m = mid(points);
+    if (label) text(label, m.x + labelDx, m.y + labelDy);
+    if (startMul) text(startMul, a.x + 4, a.y - 4, 'mul');
+    if (endMul) text(endMul, b.x - 14, b.y - 4, 'mul');
+  }
+
+  function draw() {
+    group.innerHTML = '';
+    svg.setAttribute('viewBox', `0 0 ${canvas.offsetWidth} ${canvas.offsetHeight}`);
+
+    const busTop = 22;
+    const busLeft = 8;
+    const busRight1 = canvas.offsetWidth - 150;
+    const busRight2 = canvas.offsetWidth - 170;
+    const busBottom1 = canvas.offsetHeight - 260;
+    const busBottom2 = canvas.offsetHeight - 225;
+
+    relation({ from:'Perm', fromSide:'top', to:'User', toSide:'top', label:'accordée à', startMul:'*', endMul:'*', dashed:true,
+      via:[{x:(a)=>a.x, y:busTop}, {x:(a,b)=>b.x, y:busTop}] });
+    relation({ from:'Org', fromSide:'right', to:'User', toSide:'left', label:'emploie', startMul:'1', endMul:'*' });
+    relation({ from:'User', fromSide:'right', to:'Comp', toSide:'left', label:'appartient à', startMul:'*', endMul:'*' });
+    relation({ from:'Comp', fromSide:'right', to:'Sub', toSide:'left', label:'possède', startMul:'1', endMul:'*' });
+    relation({ from:'Sub', fromSide:'right', to:'Pay', toSide:'left', label:'génère', startMul:'1', endMul:'*' });
+
+    relation({ from:'Org', fromSide:'bottom', to:'Lot', toSide:'top', label:'gère', startMul:'1', endMul:'*' });
+    relation({ from:'User', fromSide:'bottom', to:'Proj', toSide:'top', label:'participe à', startMul:'*', endMul:'*' });
+    relation({ from:'Sub', fromSide:'bottom', to:'Evt', toSide:'top', label:'souscrit', startMul:'1', endMul:'*',
+      via:[{x:(a)=>a.x, y:(a)=>a.y+18}, {x:(a,b)=>b.x, y:(a)=>a.y+18}] });
+
+    relation({ from:'Proj', fromSide:'left', to:'Lot', toSide:'right', label:'contient', startMul:'1', endMul:'*' });
+    relation({ from:'Proj', fromSide:'right', to:'Plan', toSide:'left', label:'organise', startMul:'1', endMul:'*' });
+    relation({ from:'Proj', fromSide:'right', to:'Evt', toSide:'left', label:'déclenche', startMul:'1', endMul:'*',
+      via:[{x:(a,b)=> (a.x+b.x)/2, y:(a)=>a.y}, {x:(a,b)=> (a.x+b.x)/2, y:(a,b)=>b.y}] });
+    relation({ from:'Proj', fromSide:'right', to:'SC', toSide:'left', label:'génère code', startMul:'1', endMul:'*',
+      via:[{x:(a,b)=> (a.x+b.x)/2, y:(a)=>a.y}, {x:(a,b)=> (a.x+b.x)/2, y:(a,b)=>b.y}] });
+    relation({ from:'Proj', fromSide:'left', to:'Fold', toSide:'right', label:'contient', startMul:'1', endMul:'*',
+      via:[{x:(a)=>a.x-26, y:(a)=>a.y}, {x:(a,b)=>b.x+26, y:(a,b)=>b.y}] });
+
+    relation({ from:'Fold', fromSide:'bottom', to:'File', toSide:'top', label:'contient', startMul:'1', endMul:'*' });
+    relation({ from:'Lot', fromSide:'bottom', to:'Task', toSide:'top', label:'regroupe', startMul:'1', endMul:'*' });
+    relation({ from:'Proj', fromSide:'right', to:'Act', toSide:'top', label:'planifie', startMul:'1', endMul:'*',
+      via:[{x:(a)=>a.x+28, y:(a)=>a.y}, {x:(a)=>a.x+28, y:(a,b)=>b.y-20}, {x:(a,b)=>b.x, y:(a,b)=>b.y-20}] });
+    relation({ from:'Proj', fromSide:'bottom', to:'JC', toSide:'top', label:'documente', startMul:'1', endMul:'*',
+      via:[{x:(a)=>a.x, y:(a)=>a.y+24}, {x:(a,b)=>b.x, y:(a)=>a.y+24}] });
+
+    relation({ from:'Task', fromSide:'right', to:'TC', toSide:'left', label:'définit', startMul:'1', endMul:'*',
+      via:[{x:(a)=>a.x+30, y:(a)=>a.y}, {x:(a)=>a.x+30, y:(a,b)=>b.y}] });
+
+    relation({ from:'Act', fromSide:'right', to:'Def', toSide:'left', label:'détecte', startMul:'*', endMul:'*', dashed:true });
+    relation({ from:'User', fromSide:'right', to:'Def', toSide:'right', label:'signale', startMul:'1', endMul:'*',
+      via:[{x:busRight2, y:(a)=>a.y}, {x:busRight2, y:(a,b)=>b.y}] });
+
+    relation({ from:'TC', fromSide:'bottom', to:'ACS', toSide:'right', label:'évalue', startMul:'1', endMul:'*',
+      via:[{x:(a)=>a.x, y:(a)=>a.y+28}, {x:(a,b)=>b.x+30, y:(a)=>a.y+28}, {x:(a,b)=>b.x+30, y:(a,b)=>b.y}] });
+    relation({ from:'Act', fromSide:'bottom', to:'ACS', toSide:'right', label:'mesure', startMul:'1', endMul:'*',
+      via:[{x:(a)=>a.x, y:(a)=>a.y+52}, {x:(a,b)=>b.x+50, y:(a)=>a.y+52}, {x:(a,b)=>b.x+50, y:(a,b)=>b.y}] });
+    relation({ from:'Evt', fromSide:'bottom', to:'PV', toSide:'top', label:'génère PV', startMul:'1', endMul:'*',
+      via:[{x:(a)=>a.x, y:(a)=>a.y+34}, {x:(a,b)=>b.x, y:(a)=>a.y+34}] });
+    relation({ from:'Proj', fromSide:'left', to:'Res', toSide:'right', label:'enregistre', startMul:'1', endMul:'*',
+      via:[{x:busLeft, y:(a)=>a.y}, {x:busLeft, y:(a,b)=>b.y}] });
+    relation({ from:'Proj', fromSide:'bottom', to:'Zone', toSide:'top', label:'délimite', startMul:'1', endMul:'*',
+      via:[{x:(a)=>a.x, y:(a)=>a.y+55}, {x:(a,b)=>b.x, y:(a)=>a.y+55}] });
+
+    relation({ from:'User', fromSide:'right', to:'Notif', toSide:'right', label:'reçoit', startMul:'1', endMul:'*', dashed:true,
+      via:[{x:busRight1, y:(a)=>a.y}, {x:busRight1, y:(a,b)=>b.y}] });
+    relation({ from:'User', fromSide:'right', to:'JC', toSide:'right', label:'rédige', startMul:'1', endMul:'*',
+      via:[{x:busRight2, y:(a)=>a.y+22}, {x:busRight2, y:(a,b)=>b.y}] });
+    relation({ from:'User', fromSide:'left', to:'Res', toSide:'right', label:'soumet', startMul:'1', endMul:'*',
+      via:[{x:busLeft, y:(a)=>a.y}, {x:busLeft, y:(a,b)=>b.y}] });
+  }
+
+  window.addEventListener('load', draw);
+  window.addEventListener('resize', () => requestAnimationFrame(draw));
+})();
+</script>
+
+</div></div>
+</body>
+</html>
