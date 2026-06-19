@@ -67,7 +67,7 @@ class _Thumbnail extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
     final imageUrl = path != null && path!.isNotEmpty
-        ? 'http://localhost:3000/$path'
+        ? 'https://pipropmsapi.onrender.com/$path'
         : null;
 
     return Container(

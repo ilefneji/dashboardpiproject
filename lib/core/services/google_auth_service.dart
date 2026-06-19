@@ -31,15 +31,21 @@ class GoogleAuthService {
   static bool _isSigningIn = false;
 
   static Future<void> _initialize() {
-    return _initialization ??= _googleSignIn.initialize(
-      clientId: _webClientId,
-      serverClientId: _webClientId,
-    );
+    _initialization ??= kIsWeb
+        ? _googleSignIn.initialize(
+            clientId: _webClientId,
+          )
+        : _googleSignIn.initialize(
+            clientId: _webClientId,
+            serverClientId: _webClientId,
+          );
+
+    return _initialization!;
   }
 
   static Future<GoogleAuthResult> signIn() async {
     if (_isSigningIn) {
-      throw Exception('Connexion Google deja en cours.');
+      throw Exception('Connexion Google déjà en cours.');
     }
 
     _isSigningIn = true;
@@ -49,20 +55,23 @@ class GoogleAuthService {
 
       debugPrint('[GOOGLE AUTH] Starting Google authenticate');
 
-      final googleUser = await _googleSignIn.authenticate(scopeHint: _scopes);
+      final googleUser = await _googleSignIn.authenticate(
+        scopeHint: _scopes,
+      );
 
       final googleAuth = googleUser.authentication;
+
       final googleAuthorization =
           await googleUser.authorizationClient.authorizationForScopes(
-            _scopes,
-          ) ??
-          await googleUser.authorizationClient.authorizeScopes(_scopes);
+                _scopes,
+              ) ??
+              await googleUser.authorizationClient.authorizeScopes(_scopes);
 
       final googleIdToken = googleAuth.idToken;
       final googleAccessToken = googleAuthorization.accessToken;
 
       if (googleIdToken == null || googleIdToken.isEmpty) {
-        throw Exception('Impossible de recuperer le token Google.');
+        throw Exception('Impossible de récupérer le token Google.');
       }
 
       final credential = firebase_auth.GoogleAuthProvider.credential(
@@ -82,7 +91,7 @@ class GoogleAuthService {
       final firebaseToken = await firebaseUser.getIdToken(true);
 
       if (firebaseToken == null || firebaseToken.isEmpty) {
-        throw Exception('Impossible de recuperer le token Firebase.');
+        throw Exception('Impossible de récupérer le token Firebase.');
       }
 
       return GoogleAuthResult(
@@ -99,7 +108,17 @@ class GoogleAuthService {
 
   static Future<void> signOut() async {
     await _initialize();
-    await _googleSignIn.signOut();
-    await firebase_auth.FirebaseAuth.instance.signOut();
+
+    try {
+      await _googleSignIn.signOut();
+    } catch (e) {
+      debugPrint('[GOOGLE AUTH] Google signOut ignored: $e');
+    }
+
+    try {
+      await firebase_auth.FirebaseAuth.instance.signOut();
+    } catch (e) {
+      debugPrint('[GOOGLE AUTH] Firebase signOut ignored: $e');
+    }
   }
 }

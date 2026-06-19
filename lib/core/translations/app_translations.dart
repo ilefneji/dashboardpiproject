@@ -5,7 +5,7 @@ class AppTranslations extends Translations {
   Map<String, Map<String, String>> get keys => {
         'fr': {
           // Login Page
-          'welcome_back': 'bienvenue',
+          'welcome_back': 'Bienvenue',
           'sign_in_to_account': 'Connectez-vous à votre compte',
           'email': 'Email',
           'enter_email': 'Entrez votre email',

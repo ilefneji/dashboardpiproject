@@ -38,7 +38,7 @@ class _CreatePasswordScreenState extends State<CreatePasswordScreen> {
 
     try {
       final response = await http.post(
-        Uri.parse('http://localhost:3000/users/set-password-from-invite'),
+        Uri.parse('https://pipropmsapi.onrender.com/users/set-password-from-invite'),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({
           'token': token,

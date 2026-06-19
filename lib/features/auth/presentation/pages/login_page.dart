@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../controllers/auth_controller.dart';
+import 'package:flutter/foundation.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -430,50 +431,53 @@ class _LoginPageState extends State<LoginPage>
                             ),
                             const SizedBox(height: 18),
 
-                            _AnimEntry(
-                              controller: _animController,
-                              begin: 0.55,
-                              end: 0.90,
-                              child: Obx(
-                                () => SizedBox(
-                                  height: 54,
-                                  child: OutlinedButton(
-                                    onPressed: authController.isLoading.value
-                                        ? null
-                                        : () async {
-                                            await authController
-                                                .loginWithGoogle();
-                                          },
-                                    style: OutlinedButton.styleFrom(
-                                      backgroundColor: Colors.white,
-                                      foregroundColor: AppColors.textPrimary,
-                                      side: const BorderSide(
-                                        color: Color(0xFFE5E7EB),
-                                        width: 1.2,
-                                      ),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(14),
-                                      ),
-                                    ),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        const _GoogleMark(),
-                                        const SizedBox(width: 12),
-                                        Text(
-                                          'Se connecter avec Google',
-                                          style: GoogleFonts.inter(
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.w700,
+                            if (!kIsWeb)
+                              _AnimEntry(
+                                controller: _animController,
+                                begin: 0.55,
+                                end: 0.90,
+                                child: Obx(
+                                  () => SizedBox(
+                                    height: 54,
+                                    child: OutlinedButton(
+                                      onPressed: authController.isLoading.value
+                                          ? null
+                                          : () async {
+                                              await authController
+                                                  .loginWithGoogle();
+                                            },
+                                      style: OutlinedButton.styleFrom(
+                                        backgroundColor: Colors.white,
+                                        foregroundColor: AppColors.textPrimary,
+                                        side: const BorderSide(
+                                          color: Color(0xFFE5E7EB),
+                                          width: 1.2,
+                                        ),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(
+                                            14,
                                           ),
                                         ),
-                                      ],
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          const _GoogleMark(),
+                                          const SizedBox(width: 12),
+                                          Text(
+                                            'Se connecter avec Google',
+                                            style: GoogleFonts.inter(
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.w700,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
                             const SizedBox(height: 32),
 
                             // ── Footer ──

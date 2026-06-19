@@ -143,7 +143,7 @@ class GalleryController extends GetxController {
       return;
     }
 
-    final imageUrl = 'http://localhost:3000/$path';
+    final imageUrl = 'https://pipropmsapi.onrender.com/$path';
 
     Get.dialog(
       Dialog(

@@ -1,19 +1,6 @@
-2026/06/19-13:20:12.921 5278 Reusing MANIFEST C:\Users\nejii\AppData\Local\Temp\flutter_tools.22e45ce9\flutter_tools_chrome_device.18cdf677\Default\IndexedDB\http_localhost_3003.indexeddb.leveldb/MANIFEST-000001
-2026/06/19-13:20:12.921 5278 Recovering log #74
-2026/06/19-13:20:12.922 5278 Reusing old log C:\Users\nejii\AppData\Local\Temp\flutter_tools.22e45ce9\flutter_tools_chrome_device.18cdf677\Default\IndexedDB\http_localhost_3003.indexeddb.leveldb/000074.log 
-2026/06/19-13:20:12.922 5278 Delete type=2 #21
-2026/06/19-13:20:12.922 5278 Delete type=2 #56
-2026/06/19-13:20:12.922 5278 Delete type=0 #58
-2026/06/19-13:20:12.922 5278 Delete type=2 #60
-2026/06/19-13:20:12.922 5278 Delete type=0 #62
-2026/06/19-13:20:12.922 5278 Delete type=2 #64
-2026/06/19-13:20:12.930 5278 Level-0 table #78: started
-2026/06/19-13:20:12.932 5278 Level-0 table #78: 932 bytes OK
-2026/06/19-13:20:12.933 5278 Delete type=0 #74
-2026/06/19-13:20:12.934 5278 Manual compaction at level-0 from '\x00\x16\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x17\x00\x00\x00' @ 0 : 0; will stop at '\x00\x16\x00\x00\x05' @ 765 : 1
-2026/06/19-13:20:12.934 5278 Compacting 1@0 + 1@1 files
-2026/06/19-13:20:12.936 5278 Generated table #79@0: 14 keys, 650 bytes
-2026/06/19-13:20:12.936 5278 Compacted 1@0 + 1@1 files => 650 bytes
-2026/06/19-13:20:12.937 5278 compacted to: files[ 0 1 1 0 0 0 0 ]
-2026/06/19-13:20:12.937 5278 Delete type=2 #78
-2026/06/19-13:20:12.937 5684 Manual compaction at level-0 from '\x00\x16\x00\x00\x05' @ 765 : 1 .. '\x00\x17\x00\x00\x00' @ 0 : 0; will stop at (end)
+2026/06/19-15:39:11.251 581c Creating DB C:\Users\nejii\AppData\Local\Temp\flutter_tools.f7dd3615\flutter_tools_chrome_device.dfb93fa4\Default\IndexedDB\http_localhost_3003.indexeddb.leveldb since it was missing.
+2026/06/19-15:39:11.254 581c Reusing MANIFEST C:\Users\nejii\AppData\Local\Temp\flutter_tools.f7dd3615\flutter_tools_chrome_device.dfb93fa4\Default\IndexedDB\http_localhost_3003.indexeddb.leveldb/MANIFEST-000001
+2026/06/19-15:39:11.262 a5c Level-0 table #5: started
+2026/06/19-15:39:11.264 a5c Level-0 table #5: 1282 bytes OK
+2026/06/19-15:39:11.266 a5c Delete type=0 #3
+2026/06/19-15:39:11.267 581c Manual compaction at level-0 from '\x00\x01\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x02\x00\x00\x00' @ 0 : 0; will stop at (end)

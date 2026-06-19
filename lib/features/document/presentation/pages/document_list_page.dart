@@ -136,7 +136,7 @@ class DocumentListPage extends GetView<DocumentController> {
     if (path == null || path.isEmpty) return;
 
     // Sur web, ouvrir dans un nouvel onglet.
-    final url = 'http://localhost:3000/$path';
+    final url = 'https://pipropmsapi.onrender.com//$path';
     // Utilisation de html.window.open serait idéale ici, mais on garde
     // l'action abstraite pour ne pas casser la compilation mobile.
     // Pour le dashboard web, on peut utiliser url_launcher si disponible.

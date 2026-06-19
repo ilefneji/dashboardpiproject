@@ -747,14 +747,21 @@ class _WeekGrid extends StatelessWidget {
       final journals = controller.visibleJournals;
 
       if (journals.isEmpty) {
-        return const Center(
-          child: Text('Aucun journal'),
-        );
+        return const Center(child: Text('Aucun journal'));
       }
 
-      return ResponsiveCardGrid<JournalChantier>(
-        items: journals,
-        itemBuilder: (context, journal, index) {
+      return GridView.builder(
+        padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
+        itemCount: journals.length,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3, // 3 journals per line always
+          crossAxisSpacing: 16,
+          mainAxisSpacing: 16,
+          childAspectRatio: 3.25,
+        ),
+        itemBuilder: (context, index) {
+          final journal = journals[index];
+
           final date = DateTime(
             journal.annee,
             journal.mois,
@@ -763,26 +770,28 @@ class _WeekGrid extends StatelessWidget {
 
           final today = _isSameDay(date, DateTime.now());
 
-          return JournalCard(
-            journal: journal,
-            dayLabel: controller.dayLabel(date.weekday - 1),
-            date: date,
-            isToday: today,
-            isAdmin: controller.isAdmin,
-            isReactivating: controller.isJournalReactivating(journal.id),
-            onTap: () {
-              debugPrint('NAVIGATE TO DETAIL ${journal.id}');
-              Get.toNamed(
-                '/journal-detail',
-                arguments: {
-                  'journalId': journal.id,
-                  'isAdmin': controller.isAdmin,
-                },
-              );
-            },
-            onReactivate: controller.isAdmin
-                ? () => _handleReactivate(context, controller, journal)
-                : null,
+          return SizedBox.expand(
+            child: JournalCard(
+              journal: journal,
+              dayLabel: controller.dayLabel(date.weekday - 1),
+              date: date,
+              isToday: today,
+              isAdmin: controller.isAdmin,
+              isReactivating: controller.isJournalReactivating(journal.id),
+              onTap: () {
+                debugPrint('NAVIGATE TO DETAIL ${journal.id}');
+                Get.toNamed(
+                  '/journal-detail',
+                  arguments: {
+                    'journalId': journal.id,
+                    'isAdmin': controller.isAdmin,
+                  },
+                );
+              },
+              onReactivate: controller.isAdmin
+                  ? () => _handleReactivate(context, controller, journal)
+                  : null,
+            ),
           );
         },
       );
@@ -832,7 +841,6 @@ class _WeekGrid extends StatelessWidget {
     );
   }
 }
-
 // ═══════════════════════════════════════════════════════════════════════════════
 // ⏳ Loading View
 // ═══════════════════════════════════════════════════════════════════════════════
