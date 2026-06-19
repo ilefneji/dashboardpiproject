@@ -350,18 +350,16 @@ class _KpiGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      // Force Obx to track the RxLists so it rebuilds when data arrives
+      final dashboardController = Get.find<DashboardController>();
+
       final projects = projectController.projects;
       final users = userController.users;
-
-      debugPrint(
-        '[Dashboard UI] projects=${projects.length}, users=${users.length}',
-      );
+      final reserves = dashboardController.reserves;
 
       final projectsCount = projects.length;
       final archivedCount = projects.where((p) => p.isActive == false).length;
       final usersCount = users.length;
-      const reservesCount = 0;
+      final reservesCount = reserves.length;
 
       final cards = [
         _KpiData(
@@ -385,11 +383,11 @@ class _KpiGrid extends StatelessWidget {
           const Color(0xFF2563EB),
           'Comptes disponibles',
         ),
-        const _KpiData(
+        _KpiData(
           'Reserves',
           reservesCount,
           Icons.fact_check_rounded,
-          Color(0xFFDC2626),
+          const Color(0xFFDC2626),
           'Total reserves',
         ),
       ];
@@ -401,6 +399,7 @@ class _KpiGrid extends StatelessWidget {
               : constraints.maxWidth >= 600
                   ? 2
                   : 1;
+
           return GridView.builder(
             itemCount: cards.length,
             shrinkWrap: true,
@@ -440,6 +439,7 @@ class _ChartsGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       final selectedYear = projectController.selectedYear.value;
+
       final projects = _filteredProjects(
         projectController.projects.toList(),
         selectedYear,
@@ -447,13 +447,17 @@ class _ChartsGrid extends StatelessWidget {
         selectedProjectId,
         selectedStatus,
       );
+
+      final visibleProjectIds = projects.map((p) => p.id).toSet();
+
       final tasks = lotController.tasks.toList();
+
       final monthly = _monthlyProjectData(projects);
-      var monthlyRecords = monthly
+      final monthlyRecords = monthly
           .map((m) => (label: m.label, active: m.active, archived: m.archived))
           .toList();
 
-      var lotData = projects
+      final lotData = projects
           .take(8)
           .map(
             (project) => _ChartValue(
@@ -466,10 +470,10 @@ class _ChartsGrid extends StatelessWidget {
           )
           .toList();
 
-      final sortedByBudget = [...projects]..sort(
-          (a, b) => b.budget.compareTo(a.budget),
-        );
-      var top5Budget = sortedByBudget
+      final sortedByBudget = [...projects]
+        ..sort((a, b) => b.budget.compareTo(a.budget));
+
+      final top5Budget = sortedByBudget
           .take(5)
           .map((p) => (name: p.name, budget: p.budget.toDouble()))
           .toList();
@@ -477,14 +481,25 @@ class _ChartsGrid extends StatelessWidget {
       final assignedTasks = tasks.where((task) => task.lotId != null).length;
       final unassignedTasks = math.max(tasks.length - assignedTasks, 0);
 
-      var taskStatusData = {
+      final taskStatusData = {
         'Affectees': assignedTasks,
         'Non affectees': unassignedTasks,
         'Terminees': 0,
         'En retard': 0,
       };
 
-      var reserveData = <String, int>{};
+      final reserveData = <String, int>{};
+
+      for (final reserve in dashboardController.reserves) {
+        final projectId = reserve.filePlan?.id;
+
+        // If your ReserveModel has projectId later, replace this condition.
+        // For now we count all loaded reserves because controller fetched them by projects.
+        final priority = (reserve.priority ?? '').trim();
+        final key = priority.isEmpty ? 'Non definie' : priority;
+
+        reserveData[key] = (reserveData[key] ?? 0) + 1;
+      }
 
       const journalLabels = [
         'Jan',
@@ -500,59 +515,20 @@ class _ChartsGrid extends StatelessWidget {
         'Nov',
         'Dec',
       ];
-      var journalData = List.generate(
+
+      final journalData = List.generate(
         12,
         (i) => (label: journalLabels[i], count: 0),
       );
 
-      // Fallback demo data used only when API data is empty.
-      if (monthlyRecords.every((m) => m.active == 0 && m.archived == 0)) {
-        monthlyRecords = const [
-          (label: 'Mars', active: 1, archived: 0),
-          (label: 'Avr', active: 1, archived: 0),
-          (label: 'Mai', active: 2, archived: 0),
-          (label: 'Juin', active: 2, archived: 0),
-        ];
-      }
-      if (lotData.isEmpty) {
-        lotData = const [
-          _ChartValue('Residence El Yasmine', 5),
-          _ChartValue('Villa Les Jasmins', 4),
-          _ChartValue('Centre Commercial Sousse', 6),
-          _ChartValue('Immeuble Horizon', 3),
-        ];
-      }
-      if (top5Budget.isEmpty) {
-        top5Budget = const [
-          (name: 'Residence El Yasmine', budget: 850000),
-          (name: 'Villa Les Jasmins', budget: 420000),
-          (name: 'Centre Commercial Sousse', budget: 1200000),
-          (name: 'Immeuble Horizon', budget: 680000),
-          (name: 'Lycee Pilote de Sfax', budget: 950000),
-        ];
-      }
-      if (tasks.isEmpty) {
-        taskStatusData = const {
-          'Affectees': 8,
-          'Non affectees': 3,
-          'Terminees': 6,
-          'En retard': 2,
-        };
-      }
-      if (reserveData.isEmpty) {
-        reserveData = const {
-          'Haute': 4,
-          'Moyenne': 3,
-          'Faible': 4,
-        };
-      }
-      if (journalData.every((j) => j.count == 0)) {
-        journalData = const [
-          (label: 'Mars', count: 2),
-          (label: 'Avr', count: 3),
-          (label: 'Mai', count: 4),
-          (label: 'Juin', count: 6),
-        ];
+      for (final journal in dashboardController.journals) {
+        if (!visibleProjectIds.contains(journal.projectId)) continue;
+
+        final index = journal.mois - 1;
+        if (index < 0 || index >= 12) continue;
+
+        final old = journalData[index];
+        journalData[index] = (label: old.label, count: old.count + 1);
       }
 
       return LayoutBuilder(
@@ -608,19 +584,18 @@ class _ChartsGrid extends StatelessWidget {
                 child: TopBudgetBarChart(data: top5Budget),
               ),
             ),
-            if (lotData.isNotEmpty)
-              SizedBox(
-                width: cardWidth,
-                child: _ChartCard(
-                  title: 'Repartition des lots par projet',
-                  icon: Icons.account_tree_rounded,
-                  height: 260,
-                  child: _DonutBreakdownChart(
-                    values: lotData,
-                    valueSuffix: ' lots',
-                  ),
+            SizedBox(
+              width: cardWidth,
+              child: _ChartCard(
+                title: 'Repartition des lots par projet',
+                icon: Icons.account_tree_rounded,
+                height: 260,
+                child: _DonutBreakdownChart(
+                  values: lotData,
+                  valueSuffix: ' lots',
                 ),
               ),
+            ),
           ];
 
           return Wrap(spacing: 12, runSpacing: 12, children: cards);
