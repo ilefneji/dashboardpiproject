@@ -395,8 +395,6 @@ class _InfoCard extends StatelessWidget {
       title: 'Informations',
       icon: Icons.info_rounded,
       children: [
-        _InfoRow(label: 'Projet', value: '#${journal.projectId}'),
-        _InfoRow(label: 'Utilisateur', value: '#${journal.userId}'),
         _InfoRow(label: 'Statut', value: journal.status),
         _InfoRow(label: 'Créé le', value: _formatDateTime(journal.createdAt)),
       ],
