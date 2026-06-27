@@ -287,7 +287,7 @@ Future<String?> createRenewalCheckoutSession({
         apiHeaders['authorization'];
 
     final response = await dio.post(
-      'http://192.168.1.68:3005/api/create-renewal-checkout-session',
+      'https://piprojectvetrine.netlify.app/api/create-renewal-checkout-session',
       data: {
         'subscriptionId': subscriptionId,
       },

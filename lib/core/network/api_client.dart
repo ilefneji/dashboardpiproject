@@ -7,8 +7,8 @@ import 'package:get/get.dart' as getProvider;
 import '../theme/app_colors.dart';
 
 class ApiClient {
-  static const String baseUrl = 'https://pipropmsapi.onrender.com';
-  static const Duration defaultTimeout =
+  //static const String baseUrl = 'https://pipropmsapi.onrender.com';
+static const String baseUrl = 'http://localhost:3000';  static const Duration defaultTimeout =
       Duration(seconds: 30); // Increased timeout
   static const int maxRetries = 3;
 

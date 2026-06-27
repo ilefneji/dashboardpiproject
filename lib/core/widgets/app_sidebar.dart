@@ -222,7 +222,7 @@ class _SectionLabel extends StatelessWidget {
 class _UserProfile extends StatelessWidget {
   final String name;
   final String email;
-  final String? imageId;
+  final int? imageId;
   final VoidCallback onLogout;
 
   const _UserProfile({
@@ -239,9 +239,9 @@ class _UserProfile extends StatelessWidget {
     final initials = name.isNotEmpty ? name[0].toUpperCase() : '?';
 
     Widget avatarWidget() {
-      if (imageId != null && imageId!.isNotEmpty) {
+      if (imageId != null ) {
         return CachedAvatarImage(
-          imageId: imageId!,
+          imageId: imageId!.toString()  ,
           initials: initials,
           initialsStyle: theme.textTheme.titleSmall?.copyWith(
             color: AppColors.primaryOrange,

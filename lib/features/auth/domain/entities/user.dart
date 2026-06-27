@@ -8,7 +8,7 @@ class User {
   final String? function;
   final bool isActive;
   final bool isAdmin;
-  final String? imageId;
+  final int? imageId;
   final int? organizationId;
 
   User({

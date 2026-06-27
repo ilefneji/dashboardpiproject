@@ -226,9 +226,9 @@ class _UserAvatar extends StatelessWidget {
     return CircleAvatar(
       radius: 20,
       backgroundColor: AppColors.primaryOrange.withOpacity(0.14),
-      child: imageId != null && imageId.isNotEmpty
+      child: imageId != null 
           ? CachedAvatarImage(
-              imageId: imageId,
+              imageId: imageId.toString(),
               initials: initials,
               initialsStyle: Theme.of(context).textTheme.titleSmall?.copyWith(
                     color: AppColors.primaryOrange,

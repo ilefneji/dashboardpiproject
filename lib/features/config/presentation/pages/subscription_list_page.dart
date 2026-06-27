@@ -821,6 +821,7 @@ class _CurrentSubscriptionCard extends StatelessWidget {
       final launched = await launchUrl(
         uri,
         mode: LaunchMode.externalApplication,
+        webOnlyWindowName: '_self',
       );
 
       if (!launched) {
