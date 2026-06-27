@@ -11,69 +11,80 @@ class Helper {
   Helper._();
 
   static Future<Map<String, dynamic>> uploadFile(PlatformFile file) async {
-    final dioConnect.Dio dio = dioConnect.Dio();
+  final dioConnect.Dio dio = dioConnect.Dio();
 
-    try {
-      // Create form data with file
-      final dioConnect.FormData formData = dioConnect.FormData.fromMap({});
-      
-      // Print file details for debugging (safely)
-      print('File details: name=${file.name}, size=${file.size}, hasBytes=${file.bytes != null}');
-      
-      // Safe way to handle file upload for both web and native platforms
-      if (file.bytes != null) {
-        // Use bytes for upload (works on all platforms)
-        print('Using bytes for upload');
-        formData.files.add(MapEntry(
-          'file',
-          dioConnect.MultipartFile.fromBytes(file.bytes!, filename: file.name)
-        ));
-      } else if (!kIsWeb && file.path != null) {
-        // Only use path on non-web platforms
-        print('Using path for upload (non-web platform)');
-        formData.files.add(MapEntry(
-          'file',
-          await dioConnect.MultipartFile.fromFile(file.path!, filename: file.name)
-        ));
-      } else {
-        throw Exception('No valid file data available for upload');
-      }
-      
-      // Get token from storage for authentication
-      const FlutterSecureStorage storage = FlutterSecureStorage();
-      final token = await storage.read(key: 'auth_token');
-      
-      final dioConnect.Options options = dioConnect.Options(
+  try {
+    final formData = dioConnect.FormData.fromMap({});
+
+    if (file.bytes != null) {
+      formData.files.add(MapEntry(
+        'file',
+        dioConnect.MultipartFile.fromBytes(file.bytes!, filename: file.name),
+      ));
+    } else if (!kIsWeb && file.path != null) {
+      formData.files.add(MapEntry(
+        'file',
+        await dioConnect.MultipartFile.fromFile(file.path!, filename: file.name),
+      ));
+    } else {
+      throw Exception('No valid file data available');
+    }
+
+    const storage = FlutterSecureStorage();
+    final token = await storage.read(key: 'auth_token');
+
+    final response = await dio.post(
+      '${ApiClient.baseUrl}/files/upload',
+      data: formData,
+      options: dioConnect.Options(
         headers: {
-          HttpHeaders.authorizationHeader: 'Bearer $token',
+          if (token != null) HttpHeaders.authorizationHeader: 'Bearer $token',
         },
         validateStatus: (_) => true,
-      );
+      ),
+    );
 
-      // Use a configurable base URL
-      final dioConnect.Response response = await dio.post(
-        '${ApiClient.baseUrl}/files/upload',
-        data: formData,
-        options: options,
-      );
+    print('UPLOAD STATUS: ${response.statusCode}');
+    print('UPLOAD RESPONSE: ${response.data}');
 
-      if (response.statusCode == 200) {
-        final Map<String, dynamic> responseData = response.data['data'];
-        final int fileId = responseData['id'];
-        final String filePath = responseData['path'];
-        return {'fileId': fileId, 'filePath': filePath};
-      } else {
-        print('File upload failed with status: ${response.statusCode}  ${response.statusMessage}');
-        return {'fileId': 0, 'filePath': ''}; // Return default values on failure
-      }
-    } catch (e) {
-      print('Error uploading file: $e');
-      return {'fileId': 0, 'filePath': ''}; // Return default values on error
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      final dynamic body = response.data;
+
+      final dynamic data = body is Map && body['data'] != null
+          ? body['data']
+          : body;
+
+      final dynamic fileObj = data is Map && data['file'] != null
+          ? data['file']
+          : data;
+
+      final int fileId = int.tryParse(
+            '${fileObj['fileId'] ?? fileObj['id'] ?? 0}',
+          ) ??
+          0;
+
+      final String filePath =
+          '${fileObj['filePath'] ?? fileObj['path'] ?? fileObj['url'] ?? ''}';
+
+      final String fileName =
+          '${fileObj['fileName'] ?? fileObj['name'] ?? file.name}';
+
+      return {
+        'fileId': fileId,
+        'filePath': filePath,
+        'fileName': fileName,
+      };
     }
+
+    return {'fileId': 0, 'filePath': '', 'fileName': ''};
+  } catch (e) {
+    print('Error uploading file: $e');
+    return {'fileId': 0, 'filePath': '', 'fileName': ''};
   }
-  
+}
   /// Opens a file for viewing based on its path
   /// Returns a map with success status and error message if applicable
+  
   static Future<Map<String, dynamic>> viewFile(String filePath) async {
     try {
       if (filePath.isEmpty) {

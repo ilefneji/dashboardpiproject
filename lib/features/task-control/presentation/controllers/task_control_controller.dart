@@ -448,40 +448,40 @@ class TaskControlController extends GetxController {
         withReadStream: false,
       );
 
-      if (result != null && result.files.isNotEmpty) {
-        final file = result.files.first;
-        uploadedFileName.value = file.name;
+      if (result == null || result.files.isEmpty) return;
 
-        if (file.bytes == null && file.path == null) {
-          fileError.value = 'file_data_not_available'.tr;
-          return;
-        }
+      final file = result.files.first;
+      uploadedFileName.value = file.name;
 
-        isFileUploading.value = true;
+      if (file.bytes == null && file.path == null) {
+        fileError.value = 'file_data_not_available'.tr;
+        return;
+      }
 
-        try {
-          final uploadResult = await Helper.uploadFile(file);
+      isFileUploading.value = true;
 
-          if (uploadResult['filePath'] != null &&
-              uploadResult['filePath'].toString().isNotEmpty) {
-            uploadedFilePath.value = uploadResult['filePath'];
-            uploadedFileId.value = uploadResult['fileId'] ?? 0;
-            referencePathController.text = uploadedFilePath.value;
-            // ✅ FIX #5: Replaced print() with debugPrint()
-            debugPrint('File uploaded successfully: ${uploadedFilePath.value}');
-          } else {
-            fileError.value = 'server_returned_empty_file_path'.tr;
-          }
-        } catch (uploadError) {
-          fileError.value = 'upload_failed'.tr;
-          // ✅ FIX #5: Replaced print() with debugPrint()
-          debugPrint('Upload error: $uploadError');
-        }
+      final uploadResult = await Helper.uploadFile(file);
+
+      final filePath = uploadResult['filePath']?.toString() ?? '';
+      final fileName = uploadResult['fileName']?.toString() ?? file.name;
+      final fileId = uploadResult['fileId'] ?? 0;
+
+      if (filePath.isNotEmpty) {
+        uploadedFilePath.value = filePath;
+        uploadedFileName.value = fileName;
+        uploadedFileId.value = fileId is int
+            ? fileId
+            : int.tryParse('$fileId') ?? 0;
+        referencePathController.text = filePath;
+
+        debugPrint('File uploaded successfully: $filePath');
+      } else {
+        fileError.value = 'server_returned_empty_file_path'.tr;
+        debugPrint('Upload returned empty path: $uploadResult');
       }
     } catch (e) {
       fileError.value = 'file_selection_error'.tr;
-      // ✅ FIX #5: Replaced print() with debugPrint()
-      debugPrint('File picker error: $e');
+      debugPrint('File picker/upload error: $e');
     } finally {
       isFileUploading.value = false;
     }
