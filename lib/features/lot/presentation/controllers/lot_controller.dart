@@ -235,34 +235,34 @@ class LotController extends GetxController {
     }
   }
 
-  Future<bool> updateLot(Lot lot) async {
-    isLoading.value = true;
-    errorMessage.value = '';
+Future<bool> updateLot(Lot lot) async {
+  isLoading.value = true;
+  errorMessage.value = '';
 
-    try {
-      final updated = lot.copyWith(
-        name: nameController.text,
-        description: descriptionController.text,
-      );
+  try {
+    final updated = lot.copyWith(
+      name: nameController.text.trim(),
+      description: descriptionController.text.trim(),
+    );
 
-      final result = await _lotRepository.updateLot(updated);
+    final result = await _lotRepository.updateLot(updated);
 
-      if (result) {
-        _upsertLocalLot(updated);
-        await fetchLots(silent: true);
-        return true;
-      }
-
-      errorMessage.value = 'Failed to update lot';
-      return false;
-    } catch (e) {
-      errorMessage.value = 'Error updating lot: $e';
-      return false;
-    } finally {
-      isLoading.value = false;
+    if (result) {
+      _upsertLocalLot(updated);
+      await fetchLots(silent: true);
+      clearForm(); // مهم باش add بعد update يجي فارغ
+      return true;
     }
-  }
 
+    errorMessage.value = 'Failed to update lot';
+    return false;
+  } catch (e) {
+    errorMessage.value = 'Error updating lot: $e';
+    return false;
+  } finally {
+    isLoading.value = false;
+  }
+}
   Future<bool> deleteLot(int id) async {
     isLoading.value = true;
     errorMessage.value = '';

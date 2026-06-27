@@ -77,7 +77,7 @@ class SubscriptionListPage extends StatelessWidget {
                     final bool isPro = currentPlan == 'pro';
                     final bool isOnPremise = currentPlan == 'onpremise' ||
                         currentPlan == 'on_premise' ||
-                        currentPlan == '5000';
+                        currentPlan == '500';
 
                     final planCards = isPro
                         ? [_PlanCard.onPremise(isCurrentPlan: false)]
@@ -1561,7 +1561,7 @@ class _PlanCard extends StatefulWidget {
   factory _PlanCard.onPremise({bool isCurrentPlan = false}) => _PlanCard(
         title: 'On Premise BTP',
         subtitle: 'Pour les grandes entreprises',
-        price: '5000 TND',
+        price: '500 TND',
         priceSuffix: 'par an',
         features: const [
           'Projets illimités',

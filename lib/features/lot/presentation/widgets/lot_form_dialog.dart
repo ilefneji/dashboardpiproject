@@ -24,14 +24,21 @@ class _LotFormDialogState extends State<LotFormDialog> {
   late final TextEditingController _descCtrl;
   bool _isLoading = false;
 
-  @override
-  void initState() {
-    super.initState();
-    final controller = Get.find<LotController>();
+@override
+void initState() {
+  super.initState();
+
+  final controller = Get.find<LotController>();
+
+  if (widget.isEditing) {
     _nameCtrl = TextEditingController(text: controller.nameController.text);
-    _descCtrl =
-        TextEditingController(text: controller.descriptionController.text);
+    _descCtrl = TextEditingController(text: controller.descriptionController.text);
+  } else {
+    controller.clearForm();
+    _nameCtrl = TextEditingController();
+    _descCtrl = TextEditingController();
   }
+}
 
   @override
   void dispose() {
