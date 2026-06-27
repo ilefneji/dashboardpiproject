@@ -666,21 +666,24 @@ class _ProjectCardState extends State<_ProjectCard> {
                     // ✅ FIX — async + await sur chaque action
                     onSelected: (value) async {
                       if (value == 'edit') {
+                        final fullProject =
+                            await controller.getProject(widget.project.id) ??
+                                widget.project;
                         // ✅ await showDialog — attend la fermeture
                         await showDialog(
                           context: context,
                           builder: (_) => ProjectFormDialog(
                             isEditing: true,
-                            projectId: widget.project.id,
-                            initialName: widget.project.name,
-                            initialDescription: widget.project.description,
-                            initialStartDate: widget.project.startDate,
-                            initialEndDate: widget.project.endDate,
-                            initialBudget: widget.project.budget,
-                            initialLocalisation: widget.project.localisation,
-                            initialLatitude: widget.project.latitude,
-                            initialLongitude: widget.project.longitude,
-                            initialLotIds: widget.project.lotIds,
+                            projectId: fullProject.id,
+                            initialName: fullProject.name,
+                            initialDescription: fullProject.description,
+                            initialStartDate: fullProject.startDate,
+                            initialEndDate: fullProject.endDate,
+                            initialBudget: fullProject.budget,
+                            initialLocalisation: fullProject.localisation,
+                            initialLatitude: fullProject.latitude,
+                            initialLongitude: fullProject.longitude,
+                            initialLotIds: fullProject.lotIds,
                           ),
                         );
 

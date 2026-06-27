@@ -69,7 +69,7 @@ class DashboardController extends GetxController {
       hasError.value = false;
       error.value = '';
 
-      debugPrint('[Dashboard] aggregate load started');
+      debugPrint('[Dashboard] startup load started');
 
       safetyTimer = Timer(const Duration(seconds: 15), () {
         if (isLoading.value) {
@@ -78,24 +78,20 @@ class DashboardController extends GetxController {
         }
       });
 
-      await _loadBudget();
       await Future.wait([
         _loadStats(),
-        _loadLots(),
-        _loadActivities(),
-        _loadReservations(),
-        _loadJournals(),
+        _loadBudget(),
       ]).timeout(const Duration(seconds: 12));
 
-      debugPrint('[Dashboard] aggregate load completed');
+      debugPrint('[Dashboard] startup load completed');
     } on TimeoutException {
       hasError.value = true;
-      error.value = 'Dashboard loading timeout';
-      debugPrint('[Dashboard] aggregate timeout');
+      error.value = 'Dashboard startup loading timeout';
+      debugPrint('[Dashboard] startup timeout');
     } catch (e) {
       hasError.value = true;
       error.value = e.toString();
-      debugPrint('[Dashboard] aggregate error: $e');
+      debugPrint('[Dashboard] startup error: $e');
     } finally {
       safetyTimer?.cancel();
       isLoading.value = false;
@@ -108,7 +104,8 @@ class DashboardController extends GetxController {
     isStatsLoading.value = true;
 
     try {
-      await organizationController.fetchOrganizations().timeout(_sectionTimeout);
+      // Startup stats are derived from the lightweight project list.
+      // Heavier module stats load when their screen/tab is opened.
       debugPrint('[Dashboard][Stats] success');
     } catch (e) {
       debugPrint('[Dashboard][Stats] error: $e');

@@ -37,6 +37,7 @@ class LotController extends GetxController {
   // ─────────────────────────────────────────────────────────
   Timer? _autoRefreshTimer;
   bool _isFetchingLots = false;
+  bool _isFetchingTasks = false;
 
   // ✅ Form controllers — still owned here for form dialogs only
   // ✅ searchController REMOVED — now lives in _PageHeaderState
@@ -49,8 +50,6 @@ class LotController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    fetchLots();
-    fetchTasks();
   }
 
   @override
@@ -146,6 +145,12 @@ class LotController extends GetxController {
   }
 
   Future<void> fetchTasks() async {
+    if (_isFetchingTasks) {
+      debugPrint('[Dashboard][Tasks] load skipped: already running');
+      return;
+    }
+
+    _isFetchingTasks = true;
     debugPrint('[Dashboard][Tasks] load started');
     try {
       final result =
@@ -156,6 +161,8 @@ class LotController extends GetxController {
       debugPrint('[Dashboard][Tasks] timeout after 12s; using empty data');
     } catch (e) {
       debugPrint('[Dashboard][Tasks] error: $e');
+    } finally {
+      _isFetchingTasks = false;
     }
   }
 

@@ -33,11 +33,14 @@ class UserController extends GetxController {
     super.onInit();
     authController = Get.find<AuthController>();
     subscriptionController = Get.find<SubscriptionController>();
-
-    fetchUsers();
   }
 
   Future<void> fetchUsers({bool silent = false}) async {
+    if (isLoading.value) {
+      debugPrint('[Dashboard][Users] load skipped: already running');
+      return;
+    }
+
     final shouldShowLoading = !silent || users.isEmpty;
 
     if (shouldShowLoading) {

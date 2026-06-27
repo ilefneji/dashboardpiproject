@@ -40,7 +40,6 @@ class OrganizationController extends GetxController {
     } catch (_) {
       // AppSearchController not registered — search disabled gracefully
     }
-    fetchOrganizations();
   }
 
   // ─────────────────────────────────────────────────────────────────

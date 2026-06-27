@@ -114,7 +114,6 @@ class DashboardBinding extends Bindings {
     }
 
     // 🔥 PRÉCHARGEMENT — force l'initialisation AVANT l'affichage
-    _preloadData();
   }
 
   // ─────────────────────────────────────────────────────────────

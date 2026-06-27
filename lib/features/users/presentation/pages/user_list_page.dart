@@ -28,6 +28,11 @@ class _UserListPageState extends State<UserListPage>
     super.initState();
     WidgetsBinding.instance.addObserver(this);
     controller = Get.find<UserController>();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (controller.users.isEmpty && !controller.isLoading.value) {
+        controller.fetchUsers();
+      }
+    });
   }
 
   @override

@@ -1,5 +1,7 @@
 // task/presentation/controllers/task_controller.dart
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -7,7 +9,10 @@ import '../../domain/entities/task.dart';
 import '../../domain/repositories/task_repository.dart';
 import '../../../lot/presentation/controllers/lot_controller.dart';
 import '../../../lot/domain/entities/lot.dart';
+
 class TaskController extends GetxController {
+  static const Duration _dashboardLoadTimeout = Duration(seconds: 12);
+
   final TaskRepository _taskRepository;
   LotController? _lotController;
 
@@ -85,15 +90,23 @@ class TaskController extends GetxController {
   // ── FETCH ──
   // ─────────────────────────────────────────
   Future<void> fetchTasks({bool silent = false}) async {
+    if (isLoading.value) {
+      debugPrint('[Dashboard][Tasks] load skipped: already running');
+      return;
+    }
+
     final shouldShowLoading = !silent || tasks.isEmpty;
     if (shouldShowLoading) {
       isLoading.value = true;
     }
     errorMessage.value = '';
     try {
-      final result = await _taskRepository.getTasks();
+      final result =
+          await _taskRepository.getTasks().timeout(_dashboardLoadTimeout);
       tasks.assignAll(result);
       filteredTasks.assignAll(result);
+    } on TimeoutException {
+      errorMessage.value = 'Failed to load tasks: request timed out';
     } catch (e) {
       errorMessage.value = 'Failed to load tasks: $e';
     } finally {

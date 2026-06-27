@@ -9,24 +9,25 @@ class AuthRepositoryImpl implements AuthRepository {
   final ApiClient _apiClient;
 
   AuthRepositoryImpl({required FlutterSecureStorage storage})
-    : _storage = storage,
-      _apiClient = ApiClient();
+      : _storage = storage,
+        _apiClient = ApiClient();
 
   @override
   Future<(User?, String?)> login(String email, String password) async {
     try {
       final response = await _apiClient.post(
         '/users/login',
-        data: {'email': email, 'password': password},
+        data: {'email': email.trim(), 'password': password},
       );
 
       print('Login Response Status: ${response.statusCode}');
       print('Login Response Data: ${response.data}');
 
-      // Check for 201 Created status code
-      if (response.statusCode == 201 && response.data != null) {
-        print('✓ Got 201 response with data');
-        final data = response.data['data'];
+      // Accept any successful backend response that contains user and token.
+      if (_isSuccessfulHttpStatus(response.statusCode) &&
+          response.data != null) {
+        print('Got successful login response with data');
+        final data = _extractDataMap(response.data);
         print('Data extracted: $data');
 
         if (data != null) {
@@ -187,6 +188,26 @@ class AuthRepositoryImpl implements AuthRepository {
     }
   }
 
+  bool _isSuccessfulHttpStatus(int? statusCode) {
+    return statusCode != null && statusCode >= 200 && statusCode < 300;
+  }
+
+  Map<String, dynamic>? _extractDataMap(dynamic responseData) {
+    final body = _asStringDynamicMap(responseData);
+    if (body == null) return null;
+
+    final data = _asStringDynamicMap(body['data']);
+    return data ?? body;
+  }
+
+  Map<String, dynamic>? _asStringDynamicMap(dynamic value) {
+    if (value is Map<String, dynamic>) return value;
+    if (value is Map) {
+      return value.map((key, value) => MapEntry(key.toString(), value));
+    }
+    return null;
+  }
+
   (bool, String) _successFromResponse(
     dynamic response, {
     required String successMessage,
@@ -199,9 +220,8 @@ class AuthRepositoryImpl implements AuthRepository {
     if (response.statusCode != null &&
         response.statusCode! >= 200 &&
         response.statusCode! < 300) {
-      final bodyStatusCode = data is Map<String, dynamic>
-          ? data['statusCode'] as int?
-          : null;
+      final bodyStatusCode =
+          data is Map<String, dynamic> ? data['statusCode'] as int? : null;
       if (bodyStatusCode == null ||
           bodyStatusCode >= 200 && bodyStatusCode < 300) {
         return (true, message);

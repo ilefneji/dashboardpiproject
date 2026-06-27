@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import '../../../../core/theme/app_colors.dart';
@@ -51,10 +50,6 @@ class ProjectController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    SchedulerBinding.instance.addPostFrameCallback((_) {
-      if (_isDisposed) return;
-      getAllProjects();
-    });
   }
 
   @override
